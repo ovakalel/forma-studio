@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — Forma Studio</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo"><div class="logo-icon"><span>F</span></div>Forma Studio</a>
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html">Inicio</a>
+        <a href="quienes-somos.html">Quiénes Somos</a>
+        <a href="blog.html">Blog</a>
+        <a href="contacto.html" class="active">Contacto</a>
+      </nav>
+      <div class="nav-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════
+       HERO — Módulo 4
+       En Elementor: Section > Background Image + Overlay
+       Hero con imagen a la izquierda, texto a la derecha
+  ══════════════════════════════════════ -->
+  <section class="hero" style="background-image: url('https://images.unsplash.com/photo-1596524430615-b46475ddff6e?w=1400&q=80');">
+    <div class="hero-content" style="text-align:right">
+      <h1>CONTACTO</h1>
+      <p style="margin-left:auto">¿Necesitás más información?<br><strong style="color:var(--color-accent)">Atendemos todas tus necesidades.</strong></p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FORMULARIO + INFO — Módulo 4
+       En Elementor: Section 2 columnas
+       Izq: Widget Form | Der: datos de contacto
+  ══════════════════════════════════════ -->
+  <section class="section bg-white">
+    <div class="container">
+      <div class="grid-2" style="gap:60px; align-items:start">
+
+        <!-- FORMULARIO — Widget Form de Elementor -->
+        <div>
+          <form action="thank-you.html" method="get">
+            <div class="form-group">
+              <input type="text" placeholder="Nombre" required>
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Mail" required>
+            </div>
+            <div class="form-group">
+              <input type="tel" placeholder="WhatsApp">
+            </div>
+            <div class="form-group">
+              <textarea placeholder="¿En qué podemos asesorarte?"></textarea>
+            </div>
+            <button type="submit" class="btn btn-secondary" style="width:100%">ENVIAR</button>
+          </form>
+        </div>
+
+        <!-- INFO DE CONTACTO -->
+        <div class="contact-info">
+          <h3>INFO</h3>
+          <h2>Córdoba Capital</h2>
+          <div class="divider"></div>
+
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <p>Estamos ubicados en la ciudad de Córdoba Capital.</p>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">✉️</span>
+            <p>info@formastudio.com.ar</p>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">🕐</span>
+            <p>Lunes a Viernes - 09:00 a 18:00</p>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📱</span>
+            <p>+54 9 351 000 0000</p>
+          </div>
+
+          <div class="contact-item" style="margin-top:8px">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Google_Maps_Logo_2020.svg" alt="Google Maps" style="width:32px; height:32px; object-fit:contain">
+            <p><a href="https://maps.google.com" target="_blank" style="color:var(--color-accent); font-weight:600">Google Maps<br><small style="color:var(--color-gray)">CLICK AQUÍ</small></a></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       GOOGLE MAPS — Módulo 4
+       En Elementor: Widget Google Maps
+  ══════════════════════════════════════ -->
+  <div class="container" style="padding-bottom:80px">
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d109566.20580386265!2d-64.2854778!3d-31.4134832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a28744b1c1b3%3A0x5050b6b7671d0b0!2sC%C3%B3rdoba%2C%20Argentina!5e0!3m2!1ses!2sar!4v1699000000000!5m2!1ses!2sar"
+        allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+  </div>
+
+  <div class="footer-social-bar">
+    <div style="display:flex; align-items:center; justify-content:center">
+      <span class="footer-social-line"></span>
+      <div class="footer-social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <span class="footer-social-line"></span>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="margin-bottom:16px"><div class="logo-icon"><span>F</span></div>Forma Studio</div>
+          <p>Estudio de diseño web y comunicación visual. Ayudamos a emprendedores y marcas a construir su presencia digital desde Córdoba, Argentina.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Visitenos!</h4>
+          <div class="footer-info-item"><span class="fi-icon">📍</span><p>Bv. Chacabuco 123, Córdoba Capital</p></div>
+          <div class="footer-info-item"><span class="fi-icon">✉️</span><p>hola@formastudio.com.ar</p></div>
+        </div>
+        <div class="footer-col">
+          <h4>Horario de Atención</h4>
+          <div class="footer-info-item"><span class="fi-icon">🕐</span><p>Lunes a Viernes<br>09:00 a 18:00</p></div>
+          <div class="footer-info-item"><span class="fi-icon">📱</span><p>+54 9 351 000 0000</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>FORMA STUDIO © Todos los derechos reservados. 2025 | Hecho con ❤️ en <span>Córdoba</span></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navMenu').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>

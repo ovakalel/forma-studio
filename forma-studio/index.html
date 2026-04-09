@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forma Studio — Diseño que conecta marcas con personas</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Iconos: Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       HEADER GLOBAL — Módulo 3
+       En Elementor: Theme Builder > Header
+  ══════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><span>F</span></div>
+        Forma Studio
+      </a>
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="active">Inicio</a>
+        <a href="quienes-somos.html">Quiénes Somos</a>
+        <a href="blog.html">Blog</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+      <div class="nav-social">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="nav-toggle" id="navToggle" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════
+       HERO — Módulo 5 (Landing Page)
+       En Elementor: Section > Background Image + Overlay
+  ══════════════════════════════════════ -->
+  <section class="hero" style="background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1400&q=80'); min-height: 520px;">
+    <div class="hero-content">
+      <h1>DISPARÁ TU<br><span class="text-accent">MARCA DIGITAL</span></h1>
+      <p>Diseño web, branding e identidad visual para emprendedores y marcas que quieren crecer.</p>
+      <br>
+      <a href="contacto.html" class="btn btn-primary">Hablemos de tu proyecto</a>
+      <a href="quienes-somos.html" class="btn btn-outline" style="margin-left:16px">Conocernos</a>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SERVICIOS — Módulo 1 (Cards) + Módulo 5
+       En Elementor: Inner Section 3 columnas + Widget Image Box
+  ══════════════════════════════════════ -->
+  <section class="section bg-white">
+    <div class="container">
+      <div class="section-title centered">
+        <h2>Nuestros <span class="text-primary">Servicios</span></h2>
+        <div class="divider"></div>
+        <p>Soluciones de diseño pensadas para que tu negocio se destaque online.</p>
+      </div>
+
+      <!-- MÓDULO 1: El alumno replica estas 3 cards -->
+      <div class="grid-3">
+
+        <div class="card">
+          <img class="card-image" src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=600&q=80" alt="Diseño Web">
+          <div class="card-body">
+            <h3>Diseño Web</h3>
+            <p>Creamos sitios en WordPress con Elementor que convierten visitantes en clientes.</p>
+            <a href="contacto.html" class="btn btn-primary">Más info</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img class="card-image" src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=600&q=80" alt="Branding">
+          <div class="card-body">
+            <h3>Branding & Identidad</h3>
+            <p>Logo, paleta de colores, tipografías y manual de marca para construir tu identidad.</p>
+            <a href="contacto.html" class="btn btn-primary">Más info</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img class="card-image" src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&q=80" alt="Redes Sociales">
+          <div class="card-body">
+            <h3>Redes Sociales</h3>
+            <p>Piezas gráficas y estrategia visual para que tus redes tengan coherencia y estilo.</p>
+            <a href="contacto.html" class="btn btn-primary">Más info</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       ZIGZAG / FEATURES — Módulo 5
+       En Elementor: Section 2 columnas alternadas
+  ══════════════════════════════════════ -->
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="feature-item">
+        <div class="feature-img">
+          <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=700&q=80" alt="Aumentá tus ventas">
+        </div>
+        <div class="feature-text">
+          <h3>Aumentá tus ventas</h3>
+          <p>Un sitio web bien diseñado no es solo bonito: está pensado para guiar al usuario y convertirlo en cliente. Aplicamos principios de UX/UI en cada proyecto.</p>
+          <a href="contacto.html" class="btn btn-primary">Contactanos</a>
+        </div>
+      </div>
+
+      <div class="feature-item reverse">
+        <div class="feature-img">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80" alt="Incrementá tu audiencia">
+        </div>
+        <div class="feature-text">
+          <h3>Incrementá tu audiencia</h3>
+          <p>Con contenido estratégico y SEO básico, logramos que más personas encuentren tu marca en Google y lleguen a tu sitio.</p>
+          <a href="contacto.html" class="btn btn-primary">Contactanos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       CTA BANNER — Módulo 5
+       En Elementor: Section con fondo oscuro + texto + botón
+  ══════════════════════════════════════ -->
+  <div class="cta-banner">
+    <div class="container">
+      <h2>DISPARÁ TUS<br><span>VENTAS MENSUALES</span></h2>
+      <p>Contamos con 8 años de experiencia ayudando a marcas cordobesas a crecer online.</p>
+      <a href="contacto.html" class="btn btn-primary">Haz crecer tu negocio</a>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       TESTIMONIOS — Módulo 7
+       En Elementor: Widget Testimonial Carousel
+  ══════════════════════════════════════ -->
+  <section class="section bg-white">
+    <div class="container">
+      <div class="section-title centered">
+        <h2>Lo que dicen <span class="text-primary">nuestros clientes</span></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="grid-3">
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Forma Studio transformó por completo la presencia digital de mi consultora. El sitio quedó profesional, claro y mis clientes me lo mencionan constantemente."</p>
+          <div class="testimonial-author">
+            <div class="avatar">👩</div>
+            <div>
+              <strong>Laura Fernández</strong>
+              <span>Consultora de RRHH</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Trabajé con varios estudios antes y nunca había tenido tan buenos resultados. La landing page que hicieron para mi producto triplicó las consultas en el primer mes."</p>
+          <div class="testimonial-author">
+            <div class="avatar">👨</div>
+            <div>
+              <strong>Martín Ojeda</strong>
+              <span>Emprendedor, sector tech</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Muy profesionales, atentos y con buen gusto estético. Entendieron mi marca desde el primer encuentro y el resultado superó mis expectativas."</p>
+          <div class="testimonial-author">
+            <div class="avatar">👩</div>
+            <div>
+              <strong>Camila Rojas</strong>
+              <span>Diseñadora de indumentaria</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       LLAMADO FINAL — Módulo 5
+  ══════════════════════════════════════ -->
+  <section class="section bg-cream" style="text-align:center">
+    <div class="container">
+      <h2>¿Listo para empezar?</h2>
+      <p style="max-width:480px; margin:16px auto 32px">Contanos tu proyecto y te respondemos en menos de 24 horas.</p>
+      <a href="contacto.html" class="btn btn-secondary">Llamanos ya! 📱</a>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FOOTER GLOBAL — Módulo 3
+       En Elementor: Theme Builder > Footer
+  ══════════════════════════════════════ -->
+  <div class="footer-social-bar">
+    <div style="display:flex; align-items:center; justify-content:center; gap:0">
+      <span class="footer-social-line"></span>
+      <div class="footer-social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <span class="footer-social-line"></span>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="margin-bottom:16px">
+            <div class="logo-icon"><span>F</span></div>
+            Forma Studio
+          </div>
+          <p>Estudio de diseño web y comunicación visual. Ayudamos a emprendedores y marcas a construir su presencia digital desde Córdoba, Argentina.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Visitenos!</h4>
+          <div class="footer-info-item">
+            <span class="fi-icon">📍</span>
+            <p>Bv. Chacabuco 123, Córdoba Capital</p>
+          </div>
+          <div class="footer-info-item">
+            <span class="fi-icon">✉️</span>
+            <p>hola@formastudio.com.ar</p>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Horario de Atención</h4>
+          <div class="footer-info-item">
+            <span class="fi-icon">🕐</span>
+            <p>Lunes a Viernes<br>09:00 a 18:00</p>
+          </div>
+          <div class="footer-info-item">
+            <span class="fi-icon">📱</span>
+            <p>+54 9 351 000 0000</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>FORMA STUDIO © Todos los derechos reservados. 2025 | Hecho con ❤️ en <span>Córdoba</span></p>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════
+       POP-UP — Módulo 7
+       En Elementor: Templates > Popup
+  ══════════════════════════════════════ -->
+  <div class="popup-overlay" id="popup">
+    <div class="popup-box">
+      <button class="popup-close" id="popupClose">✕</button>
+      <div style="font-size:2.5rem; margin-bottom:16px">🎨</div>
+      <h3>¿Querés una web que venda?</h3>
+      <p>Solicitá tu presupuesto gratuito y te respondemos en 24 hs.</p>
+      <a href="contacto.html" class="btn btn-primary" style="width:100%">Solicitar presupuesto</a>
+    </div>
+  </div>
+
+  <script>
+    // Nav móvil
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navMenu').classList.toggle('open');
+    });
+    // Popup con delay
+    setTimeout(() => document.getElementById('popup').classList.add('open'), 4000);
+    document.getElementById('popupClose').addEventListener('click', () => {
+      document.getElementById('popup').classList.remove('open');
+    });
+    document.getElementById('popup').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('popup')) document.getElementById('popup').classList.remove('open');
+    });
+  </script>
+</body>
+</html>

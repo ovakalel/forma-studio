@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dominando el Arte del Diseño Web — Blog Forma Studio</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* ── SINGLE POST STYLES — Módulo 6 ── */
+    .post-hero { min-height: 300px; }
+    .post-content { max-width: 760px; margin: 0 auto; padding: 60px 24px; }
+    .post-meta-bar { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
+    .post-content h2 { font-size: 1.6rem; margin: 40px 0 16px; }
+    .post-content h3 { font-size: 1.2rem; margin: 32px 0 12px; color: var(--color-secondary); }
+    .post-content p  { margin-bottom: 20px; line-height: 1.8; color: #444; }
+    .post-content ul { margin: 16px 0 24px 24px; list-style: disc; }
+    .post-content ul li { margin-bottom: 10px; color: #444; line-height: 1.7; }
+    .post-divider { border: none; border-top: 1px solid var(--color-gray-light); margin: 48px 0; }
+    .author-box { display: flex; align-items: center; gap: 20px; background: var(--color-cream); padding: 24px; border-radius: var(--radius-card); }
+    .author-box .avatar { width: 64px; height: 64px; border-radius: 50%; background: var(--color-gray-light); display: flex; align-items: center; justify-content: center; font-size: 2rem; flex-shrink: 0; }
+    .author-box h4 { font-family: var(--font-heading); font-size: 1rem; margin-bottom: 4px; }
+    .author-box p { margin: 0; font-size: 0.88rem; }
+    .related-posts { background: var(--color-cream); padding: 60px 0; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo"><div class="logo-icon"><span>F</span></div>Forma Studio</a>
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html">Inicio</a>
+        <a href="quienes-somos.html">Quiénes Somos</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+      <div class="nav-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════
+       HERO DEL POST — Módulo 6
+       En Elementor: Single Post Template > Imagen Destacada
+  ══════════════════════════════════════ -->
+  <section class="hero post-hero" style="background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1400&q=80');">
+    <div class="hero-content">
+      <span class="blog-tag" style="margin-bottom:16px; display:inline-block">Diseño Web</span>
+      <h1 style="max-width:700px">Dominando el Arte del Diseño Web para Incrementar Ingresos</h1>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       CONTENIDO DEL POST — Módulo 6
+       En Elementor: Widget Text Editor (jerarquía H2/H3)
+  ══════════════════════════════════════ -->
+  <article class="post-content">
+
+    <div class="post-meta-bar">
+      <span class="badge badge-primary"><i class="far fa-calendar" style="margin-right:6px"></i>15 Mar 2025</span>
+      <span class="badge badge-accent"><i class="far fa-clock" style="margin-right:6px"></i>5 min de lectura</span>
+      <span style="font-size:0.85rem; color:var(--color-gray)">Por <strong>Ana Morales</strong></span>
+    </div>
+
+    <p>El diseño web dejó de ser un lujo para convertirse en una herramienta estratégica de negocio. Si tu sitio no convierte, no importa cuánto tráfico reciba. En este artículo exploramos los pilares del diseño web que realmente genera resultados.</p>
+
+    <h2>¿Por qué el diseño impacta directamente en tus ventas?</h2>
+    <p>Estudios de UX demuestran que los usuarios forman una opinión sobre un sitio en menos de 50 milisegundos. Ese primer impacto visual determina si el visitante se queda o se va. Una mala primera impresión equivale a una venta perdida antes de empezar.</p>
+    <p>El diseño web profesional no se trata solo de estética: se trata de arquitectura de información, jerarquía visual y flujo de conversión. Cada elemento del sitio tiene un propósito estratégico.</p>
+
+    <h3>Los 3 pilares del diseño que convierte</h3>
+    <ul>
+      <li><strong>Claridad visual:</strong> El usuario debe entender qué ofrecés en los primeros 3 segundos. Titular claro, propuesta de valor visible, CTA prominente.</li>
+      <li><strong>Confianza:</strong> Testimonios, logos de clientes, certificaciones y fotos reales del equipo generan credibilidad instantánea.</li>
+      <li><strong>Flujo de conversión:</strong> El sitio debe guiar al usuario hacia una acción específica. Cada página tiene un único objetivo principal.</li>
+    </ul>
+
+    <h2>Cómo aplicar esto en WordPress con Elementor</h2>
+    <p>Con Elementor Pro podés implementar todos estos principios sin escribir una línea de código. La clave está en usar los widgets correctos para cada sección y mantener coherencia en el design system de tu marca.</p>
+    <p>Comenzá siempre por definir tu paleta de colores y tipografías en los Estilos Globales de Elementor. Esto garantiza que cualquier elemento que agregues respete automáticamente la identidad de tu marca.</p>
+
+    <h3>Widgets esenciales para sitios que convierten</h3>
+    <ul>
+      <li>Heading + Text Editor para la jerarquía de contenido</li>
+      <li>Image Box y Icon Box para presentar servicios</li>
+      <li>Testimonial Carousel para prueba social</li>
+      <li>Form para capturar leads</li>
+      <li>Countdown para urgencia en ofertas</li>
+    </ul>
+
+    <p>El resultado es un sitio que no solo se ve bien, sino que trabaja para vos las 24 horas del día.</p>
+
+    <hr class="post-divider">
+
+    <div class="author-box">
+      <div class="avatar">👩‍🎨</div>
+      <div>
+        <h4>Ana Morales</h4>
+        <p>Directora Creativa de Forma Studio. Diseñadora con +8 años de experiencia en branding y diseño web para marcas cordobesas.</p>
+      </div>
+    </div>
+
+  </article>
+
+  <!-- ══════════════════════════════════════
+       POSTS RELACIONADOS — Módulo 6
+       En Elementor: Loop Grid (Posts relacionados)
+  ══════════════════════════════════════ -->
+  <section class="related-posts">
+    <div class="container">
+      <div class="section-title centered" style="margin-bottom:40px">
+        <h2>También te puede <span class="text-primary">interesar</span></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="grid-3">
+
+        <div class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=600&q=80" alt="Branding" style="width:100%; height:100%; object-fit:cover">
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-tag">Branding</span>
+            <h3>Estrategias Efectivas de Branding para Maximizar tu Presencia</h3>
+            <a href="blog-post.html" class="btn btn-primary">Más Info</a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=600&q=80" alt="UX" style="width:100%; height:100%; object-fit:cover">
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-tag">UX/UI</span>
+            <h3>Los 10 Principios de UX que Todo Diseñador Web Debe Conocer</h3>
+            <a href="blog-post.html" class="btn btn-primary">Más Info</a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80" alt="IA" style="width:100%; height:100%; object-fit:cover">
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-tag">IA & Diseño</span>
+            <h3>Inteligencia Artificial en el Diseño Web: Herramientas que Usamos</h3>
+            <a href="blog-post.html" class="btn btn-primary">Más Info</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="footer-social-bar">
+    <div style="display:flex; align-items:center; justify-content:center">
+      <span class="footer-social-line"></span>
+      <div class="footer-social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <span class="footer-social-line"></span>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="margin-bottom:16px"><div class="logo-icon"><span>F</span></div>Forma Studio</div>
+          <p>Estudio de diseño web y comunicación visual. Ayudamos a emprendedores y marcas a construir su presencia digital desde Córdoba, Argentina.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Visitenos!</h4>
+          <div class="footer-info-item"><span class="fi-icon">📍</span><p>Bv. Chacabuco 123, Córdoba Capital</p></div>
+          <div class="footer-info-item"><span class="fi-icon">✉️</span><p>hola@formastudio.com.ar</p></div>
+        </div>
+        <div class="footer-col">
+          <h4>Horario de Atención</h4>
+          <div class="footer-info-item"><span class="fi-icon">🕐</span><p>Lunes a Viernes<br>09:00 a 18:00</p></div>
+          <div class="footer-info-item"><span class="fi-icon">📱</span><p>+54 9 351 000 0000</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>FORMA STUDIO © Todos los derechos reservados. 2025 | Hecho con ❤️ en <span>Córdoba</span></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navMenu').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>

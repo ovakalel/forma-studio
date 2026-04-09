@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System — Forma Studio | Referencia del Curso</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .ds-section { padding: 48px 0; border-bottom: 1px solid var(--color-gray-light); }
+    .ds-label { font-size: 0.7rem; font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-gray); display: block; margin-bottom: 8px; }
+    .swatch-row { display: flex; gap: 16px; flex-wrap: wrap; }
+    .swatch { width: 100px; text-align: center; }
+    .swatch-color { width: 100px; height: 80px; border-radius: 8px; margin-bottom: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .swatch p { font-size: 0.75rem; color: var(--color-gray); margin: 0; }
+    .swatch strong { font-family: var(--font-heading); font-size: 0.8rem; display: block; }
+    .btn-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+    .type-sample { margin-bottom: 24px; }
+    .module-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--color-secondary); color: var(--color-white); padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-family: var(--font-heading); font-weight: 700; margin-bottom: 16px; }
+    .module-badge .dot { width: 8px; height: 8px; background: var(--color-accent); border-radius: 50%; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo"><div class="logo-icon"><span>F</span></div>Forma Studio</a>
+      <nav class="nav-menu">
+        <a href="index.html">← Volver al sitio</a>
+      </nav>
+    </div>
+  </header>
+
+  <section style="background: var(--color-secondary); padding: 60px 0; text-align:center">
+    <div class="container">
+      <h1 style="color:var(--color-white)">Design System</h1>
+      <p style="color:rgba(255,255,255,0.7); margin-top:12px">Forma Studio — Referencia para alumnos del Curso Diseño Web | Centro Kandinsky</p>
+    </div>
+  </section>
+
+  <div class="container">
+
+    <!-- COLORES -->
+    <div class="ds-section">
+      <div class="module-badge"><span class="dot"></span>Módulo 2 — Estilos Globales en Elementor</div>
+      <h2 style="margin-bottom:32px">Paleta de Colores</h2>
+      <div class="swatch-row">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#E8402A"></div>
+          <strong>Primario</strong>
+          <p>#E8402A</p>
+          <p>Botones, header</p>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#1A1A3E"></div>
+          <strong>Secundario</strong>
+          <p>#1A1A3E</p>
+          <p>Footer, CTA oscuro</p>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#00C2CB"></div>
+          <strong>Acento</strong>
+          <p>#00C2CB</p>
+          <p>Subtítulos, highlights</p>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#F5F0EB; border:1px solid #ddd"></div>
+          <strong>Crema</strong>
+          <p>#F5F0EB</p>
+          <p>Fondo secciones</p>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#111111"></div>
+          <strong>Negro</strong>
+          <p>#111111</p>
+          <p>Texto títulos</p>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#666666"></div>
+          <strong>Gris</strong>
+          <p>#666666</p>
+          <p>Texto párrafos</p>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#FFFFFF; border:1px solid #ddd"></div>
+          <strong>Blanco</strong>
+          <p>#FFFFFF</p>
+          <p>Fondos, texto claro</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIPOGRAFÍA -->
+    <div class="ds-section">
+      <div class="module-badge"><span class="dot"></span>Módulo 2 — Tipografías Globales en Elementor</div>
+      <h2 style="margin-bottom:32px">Tipografía</h2>
+      <div style="margin-bottom:24px">
+        <span class="ds-label">Heading — Montserrat ExtraBold 800</span>
+        <div class="type-sample"><h1 style="margin:0">Título Principal H1</h1></div>
+        <div class="type-sample"><h2 style="margin:0">Título Secundario H2</h2></div>
+        <div class="type-sample"><h3 style="margin:0">Título Terciario H3</h3></div>
+      </div>
+      <div>
+        <span class="ds-label">Body — DM Sans Regular 400</span>
+        <p style="max-width:600px">Este es un párrafo de ejemplo con la tipografía de cuerpo. Se usa en descripciones, textos de contenido y cualquier texto corrido del sitio. Tamaño base: 16px, line-height: 1.6.</p>
+        <p style="font-size:0.85rem; max-width:600px">Texto secundario más pequeño (14px) para metadatos, fechas, etiquetas y texto de soporte.</p>
+      </div>
+    </div>
+
+    <!-- BOTONES -->
+    <div class="ds-section">
+      <div class="module-badge"><span class="dot"></span>Módulos 1-5 — Widget Button en Elementor</div>
+      <h2 style="margin-bottom:32px">Botones</h2>
+      <div class="btn-row">
+        <div>
+          <span class="ds-label">Primario</span>
+          <button class="btn btn-primary">Más Info</button>
+        </div>
+        <div>
+          <span class="ds-label">Secundario</span>
+          <button class="btn btn-secondary">Contactanos</button>
+        </div>
+        <div style="background:var(--color-secondary); padding:16px; border-radius:8px">
+          <span class="ds-label" style="color:rgba(255,255,255,0.5)">Outline (sobre fondo oscuro)</span>
+          <button class="btn btn-outline">Conocernos</button>
+        </div>
+      </div>
+      <div style="margin-top:24px; background:var(--color-cream); padding:20px; border-radius:8px; font-size:0.88rem">
+        <strong>En Elementor:</strong> Widget Button → Style → Background Color: <code>#E8402A</code> | Border Radius: 4px | Typography: Montserrat Bold 700 | Letter Spacing: 0.08em | Uppercase: ON
+      </div>
+    </div>
+
+    <!-- CARD — MÓDULO 1 -->
+    <div class="ds-section">
+      <div class="module-badge"><span class="dot"></span>Módulo 1 — El primer ejercicio del alumno</div>
+      <h2 style="margin-bottom:8px">Card de Servicio</h2>
+      <p style="margin-bottom:32px">Este es el componente que replicás en la Tarea del Módulo 1. Imagen + título + texto + botón.</p>
+      <div style="max-width:360px">
+        <div class="card">
+          <img class="card-image" src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=600&q=80" alt="Diseño Web">
+          <div class="card-body">
+            <h3>Diseño Web</h3>
+            <p>Creamos sitios en WordPress con Elementor que convierten visitantes en clientes.</p>
+            <a href="#" class="btn btn-primary">Más info</a>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:24px; background:var(--color-cream); padding:20px; border-radius:8px; font-size:0.88rem">
+        <strong>En Elementor:</strong> Section 1 columna → Widget Image → Widget Heading → Widget Text Editor → Widget Button. Agregar padding interno 24px al container.
+      </div>
+    </div>
+
+    <!-- TESTIMONIAL -->
+    <div class="ds-section">
+      <div class="module-badge"><span class="dot"></span>Módulo 7 — Widget Testimonial</div>
+      <h2 style="margin-bottom:32px">Testimonial Card</h2>
+      <div style="max-width:400px">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Forma Studio transformó por completo la presencia digital de mi consultora. El sitio quedó profesional y mis clientes me lo mencionan constantemente."</p>
+          <div class="testimonial-author">
+            <div class="avatar">👩</div>
+            <div>
+              <strong>Laura Fernández</strong>
+              <span>Consultora de RRHH</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ESPACIADO -->
+    <div class="ds-section">
+      <div class="module-badge"><span class="dot"></span>Módulos 2-7 — Espaciado en Elementor</div>
+      <h2 style="margin-bottom:32px">Espaciado y Estructura</h2>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:16px">
+        <div style="background:var(--color-cream); padding:20px; border-radius:8px; text-align:center">
+          <strong style="font-size:1.5rem; color:var(--color-primary)">80px</strong>
+          <p style="margin:0; font-size:0.85rem">Padding vertical secciones (Desktop)</p>
+        </div>
+        <div style="background:var(--color-cream); padding:20px; border-radius:8px; text-align:center">
+          <strong style="font-size:1.5rem; color:var(--color-primary)">56px</strong>
+          <p style="margin:0; font-size:0.85rem">Padding vertical secciones (Tablet)</p>
+        </div>
+        <div style="background:var(--color-cream); padding:20px; border-radius:8px; text-align:center">
+          <strong style="font-size:1.5rem; color:var(--color-primary)">40px</strong>
+          <p style="margin:0; font-size:0.85rem">Padding vertical secciones (Mobile)</p>
+        </div>
+        <div style="background:var(--color-cream); padding:20px; border-radius:8px; text-align:center">
+          <strong style="font-size:1.5rem; color:var(--color-primary)">1140px</strong>
+          <p style="margin:0; font-size:0.85rem">Ancho máximo del container</p>
+        </div>
+        <div style="background:var(--color-cream); padding:20px; border-radius:8px; text-align:center">
+          <strong style="font-size:1.5rem; color:var(--color-primary)">28px</strong>
+          <p style="margin:0; font-size:0.85rem">Gap entre columnas / cards</p>
+        </div>
+        <div style="background:var(--color-cream); padding:20px; border-radius:8px; text-align:center">
+          <strong style="font-size:1.5rem; color:var(--color-primary)">24px</strong>
+          <p style="margin:0; font-size:0.85rem">Padding interno de cards</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PÁGINAS -->
+    <div class="ds-section">
+      <h2 style="margin-bottom:24px">Mapa del Sitio</h2>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:16px; margin-bottom:24px">
+        <a href="index.html" style="display:block; background:var(--color-cream); padding:20px; border-radius:8px; border-left:4px solid var(--color-primary)">
+          <strong style="font-family:var(--font-heading)">🏠 Inicio</strong>
+          <p style="margin:4px 0 0; font-size:0.82rem">Módulo 5 + 7</p>
+        </a>
+        <a href="quienes-somos.html" style="display:block; background:var(--color-cream); padding:20px; border-radius:8px; border-left:4px solid var(--color-accent)">
+          <strong style="font-family:var(--font-heading)">👥 Quiénes Somos</strong>
+          <p style="margin:4px 0 0; font-size:0.82rem">Módulo 2</p>
+        </a>
+        <a href="blog.html" style="display:block; background:var(--color-cream); padding:20px; border-radius:8px; border-left:4px solid var(--color-secondary)">
+          <strong style="font-family:var(--font-heading)">📝 Blog</strong>
+          <p style="margin:4px 0 0; font-size:0.82rem">Módulo 6</p>
+        </a>
+        <a href="blog-post.html" style="display:block; background:var(--color-cream); padding:20px; border-radius:8px; border-left:4px solid var(--color-secondary)">
+          <strong style="font-family:var(--font-heading)">📄 Post Individual</strong>
+          <p style="margin:4px 0 0; font-size:0.82rem">Módulo 6</p>
+        </a>
+        <a href="contacto.html" style="display:block; background:var(--color-cream); padding:20px; border-radius:8px; border-left:4px solid var(--color-primary)">
+          <strong style="font-family:var(--font-heading)">📬 Contacto</strong>
+          <p style="margin:4px 0 0; font-size:0.82rem">Módulo 4</p>
+        </a>
+        <a href="thank-you.html" style="display:block; background:var(--color-cream); padding:20px; border-radius:8px; border-left:4px solid #22c55e">
+          <strong style="font-family:var(--font-heading)">✅ Thank You</strong>
+          <p style="margin:4px 0 0; font-size:0.82rem">Módulo 8</p>
+        </a>
+        <a href="404.html" style="display:block; background:var(--color-cream); padding:20px; border-radius:8px; border-left:4px solid #f59e0b">
+          <strong style="font-family:var(--font-heading)">🔍 404</strong>
+          <p style="margin:4px 0 0; font-size:0.82rem">Módulo 8</p>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="background:var(--color-secondary); padding:24px; text-align:center; margin-top:60px">
+    <p style="color:rgba(255,255,255,0.6); margin:0; font-size:0.85rem">Design System — Forma Studio | Material de uso interno · Curso Diseño Web con WordPress · Centro Kandinsky, Córdoba 2025</p>
+  </div>
+
+</body>
+</html>
