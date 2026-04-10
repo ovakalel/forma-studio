@@ -2,6 +2,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
+    { "source": "/modulo-1", "destination": "/modulo-1.html" },
     { "source": "/quienes-somos", "destination": "/quienes-somos.html" },
     { "source": "/contacto", "destination": "/contacto.html" },
     { "source": "/blog", "destination": "/blog.html" },

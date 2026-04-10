@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card de Servicio — Módulo 1 | Forma Studio</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Indicadores pedagógicos — solo visibles en esta página de referencia */
+    .widget-label {
+      display: inline-block;
+      background: var(--color-secondary);
+      color: var(--color-white);
+      font-family: var(--font-heading);
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 6px;
+    }
+    .widget-wrap {
+      position: relative;
+      border: 2px dashed transparent;
+      border-radius: 6px;
+      padding: 6px;
+      transition: border-color 0.2s;
+    }
+    .widget-wrap:hover {
+      border-color: var(--color-accent);
+    }
+    .widget-wrap:hover .widget-label {
+      background: var(--color-accent);
+    }
+    .card-demo {
+      max-width: 360px;
+      margin: 0 auto;
+    }
+    .note-box {
+      background: var(--color-secondary);
+      color: var(--color-white);
+      border-radius: 8px;
+      padding: 20px 24px;
+      font-size: 0.88rem;
+      line-height: 1.7;
+    }
+    .note-box strong { color: var(--color-accent); }
+    .note-box code {
+      background: rgba(255,255,255,0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.85rem;
+    }
+    .step-num {
+      width: 32px; height: 32px;
+      background: var(--color-primary);
+      color: var(--color-white);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .step-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .step-row p { margin: 0; padding-top: 6px; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><span>F</span></div>
+        Forma Studio
+      </a>
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html">Inicio</a>
+        <a href="quienes-somos.html">Quiénes Somos</a>
+        <a href="blog.html">Blog</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+      <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+    </div>
+  </header>
+
+  <!-- BANNER MÓDULO -->
+  <div style="background: var(--color-secondary); padding: 48px 0; text-align:center">
+    <div class="container">
+      <span style="background:var(--color-primary); color:#fff; font-family:var(--font-heading); font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; padding:6px 16px; border-radius:20px; display:inline-block; margin-bottom:16px">Módulo 1 — Ejercicio Práctico</span>
+      <h1 style="color:var(--color-white); margin-bottom:12px">Card de Servicio</h1>
+      <p style="color:rgba(255,255,255,0.7); max-width:520px; margin:0 auto">Tu objetivo es replicar esta card en Elementor usando 4 widgets básicos: <strong style="color:var(--color-accent)">Image · Heading · Text Editor · Button</strong></p>
+    </div>
+  </div>
+
+  <!-- CARD DE REFERENCIA -->
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="section-title centered">
+        <h2>La card que vas a <span class="text-primary">maquetar</span></h2>
+        <div class="divider"></div>
+        <p>Pasá el mouse por cada parte para ver qué widget de Elementor corresponde.</p>
+      </div>
+
+      <div class="card-demo">
+        <div class="card">
+
+          <!-- WIDGET: IMAGE -->
+          <div class="widget-wrap">
+            <span class="widget-label">① Widget: Image</span>
+            <img
+              class="card-image"
+              src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=600&q=80"
+              alt="Diseño Web"
+            >
+          </div>
+
+          <div class="card-body">
+
+            <!-- WIDGET: HEADING -->
+            <div class="widget-wrap">
+              <span class="widget-label">② Widget: Heading</span>
+              <h3>Diseño Web</h3>
+            </div>
+
+            <!-- WIDGET: TEXT EDITOR -->
+            <div class="widget-wrap">
+              <span class="widget-label">③ Widget: Text Editor</span>
+              <p>Creamos sitios en WordPress con Elementor que convierten visitantes en clientes reales.</p>
+            </div>
+
+            <!-- WIDGET: BUTTON -->
+            <div class="widget-wrap">
+              <span class="widget-label">④ Widget: Button</span>
+              <a href="contacto.html" class="btn btn-primary">Más Info</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PASO A PASO EN ELEMENTOR -->
+  <section class="section bg-white">
+    <div class="container" style="max-width:720px">
+      <div class="section-title centered">
+        <h2>Cómo replicarla en <span class="text-primary">Elementor</span></h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="note-box" style="margin-bottom:40px">
+        <strong>Antes de empezar:</strong> Creá una página nueva en WordPress → abrila con Elementor → agregá una <code>Section</code> de 1 columna con ancho máximo de <code>360px</code> y <code>padding 0px</code> en todos los lados.
+      </div>
+
+      <div class="step-row">
+        <span class="step-num">1</span>
+        <p><strong>Widget Image</strong> — Arrastralo dentro de la sección. Subí una imagen desde tu computadora o usá una URL. Tamaño sugerido: <code>600 × 400 px</code>. En Style → ajustá Height a <code>200px</code> y Object Fit a <code>Cover</code>.</p>
+      </div>
+      <div class="step-row">
+        <span class="step-num">2</span>
+        <p><strong>Widget Heading</strong> — Escribí el título del servicio. En Style → Font Family: <code>Montserrat</code>, Size: <code>20px</code>, Weight: <code>800</code>. Margin top: <code>24px</code>.</p>
+      </div>
+      <div class="step-row">
+        <span class="step-num">3</span>
+        <p><strong>Widget Text Editor</strong> — Escribí la descripción del servicio (2-3 líneas). En Style → Font: <code>DM Sans</code>, Size: <code>15px</code>, Color: <code>#666666</code>. Margin bottom: <code>20px</code>.</p>
+      </div>
+      <div class="step-row">
+        <span class="step-num">4</span>
+        <p><strong>Widget Button</strong> — Texto: <code>Más Info</code>. En Style → Background: <code>#E8402A</code>, Border Radius: <code>4px</code>, Typography: Montserrat Bold Uppercase. Size: <code>Small</code>.</p>
+      </div>
+      <div class="step-row">
+        <span class="step-num">5</span>
+        <p><strong>Sombra de la card</strong> — Seleccioná la Section → Advanced → Box Shadow → Color: <code>rgba(0,0,0,0.08)</code>, Blur: <code>20px</code>, Spread: <code>0</code>. Agregá también Border Radius: <code>8px</code>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DESIGN SYSTEM TOKENS -->
+  <section class="section bg-cream">
+    <div class="container" style="max-width:720px">
+      <div class="section-title centered">
+        <h2>Tokens del <span class="text-primary">Design System</span></h2>
+        <div class="divider"></div>
+        <p>Usá siempre estos valores para mantener coherencia con el resto del sitio.</p>
+      </div>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:16px">
+        <div style="background:#fff; padding:16px; border-radius:8px; border-left:4px solid var(--color-primary)">
+          <span style="font-size:0.72rem; font-family:var(--font-heading); text-transform:uppercase; color:var(--color-gray); letter-spacing:0.08em">Color botón</span>
+          <p style="font-family:monospace; font-size:1rem; font-weight:700; margin:4px 0 0; color:var(--color-primary)">#E8402A</p>
+        </div>
+        <div style="background:#fff; padding:16px; border-radius:8px; border-left:4px solid var(--color-secondary)">
+          <span style="font-size:0.72rem; font-family:var(--font-heading); text-transform:uppercase; color:var(--color-gray); letter-spacing:0.08em">Tipografía título</span>
+          <p style="font-family:monospace; font-size:1rem; font-weight:700; margin:4px 0 0; color:var(--color-secondary)">Montserrat 800</p>
+        </div>
+        <div style="background:#fff; padding:16px; border-radius:8px; border-left:4px solid var(--color-accent)">
+          <span style="font-size:0.72rem; font-family:var(--font-heading); text-transform:uppercase; color:var(--color-gray); letter-spacing:0.08em">Tipografía texto</span>
+          <p style="font-family:monospace; font-size:1rem; font-weight:700; margin:4px 0 0; color:var(--color-accent)">DM Sans 400</p>
+        </div>
+        <div style="background:#fff; padding:16px; border-radius:8px; border-left:4px solid #888">
+          <span style="font-size:0.72rem; font-family:var(--font-heading); text-transform:uppercase; color:var(--color-gray); letter-spacing:0.08em">Color texto</span>
+          <p style="font-family:monospace; font-size:1rem; font-weight:700; margin:4px 0 0; color:#666">#666666</p>
+        </div>
+        <div style="background:#fff; padding:16px; border-radius:8px; border-left:4px solid #111">
+          <span style="font-size:0.72rem; font-family:var(--font-heading); text-transform:uppercase; color:var(--color-gray); letter-spacing:0.08em">Border radius</span>
+          <p style="font-family:monospace; font-size:1rem; font-weight:700; margin:4px 0 0">8px card / 4px btn</p>
+        </div>
+        <div style="background:#fff; padding:16px; border-radius:8px; border-left:4px solid var(--color-primary)">
+          <span style="font-size:0.72rem; font-family:var(--font-heading); text-transform:uppercase; color:var(--color-gray); letter-spacing:0.08em">Padding interno</span>
+          <p style="font-family:monospace; font-size:1rem; font-weight:700; margin:4px 0 0">24px todos los lados</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NAVEGACIÓN ENTRE MÓDULOS -->
+  <section class="section bg-white" style="text-align:center">
+    <div class="container">
+      <p style="margin-bottom:24px; color:var(--color-gray)">¿Terminaste la card? Continuá con el siguiente módulo.</p>
+      <a href="quienes-somos.html" class="btn btn-primary">Ver Módulo 2 → Quiénes Somos</a>
+      <a href="design-system.html" class="btn btn-secondary" style="margin-left:12px">Ver Design System completo</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="footer-social-bar">
+    <div style="display:flex; align-items:center; justify-content:center">
+      <span class="footer-social-line"></span>
+      <div class="footer-social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <span class="footer-social-line"></span>
+    </div>
+  </div>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="margin-bottom:16px"><div class="logo-icon"><span>F</span></div>Forma Studio</div>
+          <p>Estudio de diseño web y comunicación visual. Ayudamos a emprendedores y marcas a construir su presencia digital desde Córdoba, Argentina.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Visitenos!</h4>
+          <div class="footer-info-item"><span class="fi-icon">📍</span><p>Bv. Chacabuco 123, Córdoba Capital</p></div>
+          <div class="footer-info-item"><span class="fi-icon">✉️</span><p>hola@formastudio.com.ar</p></div>
+        </div>
+        <div class="footer-col">
+          <h4>Horario de Atención</h4>
+          <div class="footer-info-item"><span class="fi-icon">🕐</span><p>Lunes a Viernes<br>09:00 a 18:00</p></div>
+          <div class="footer-info-item"><span class="fi-icon">📱</span><p>+54 9 351 000 0000</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>FORMA STUDIO © Todos los derechos reservados. 2025 | Hecho con ❤️ en <span>Córdoba</span></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navMenu').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
