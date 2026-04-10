@@ -43,10 +43,10 @@ ul { list-style: none; }
 }
 
 /* ── TYPOGRAPHY ───────────────────────────── */
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   line-height: 1.2;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--color-black);
 }
 h1 { font-size: clamp(2rem, 4vw, 3.2rem); }
@@ -301,7 +301,7 @@ p  { font-size: 1rem; color: var(--color-gray); }
 .form-group select {
   width: 100%;
   padding: 14px 16px;
-  border: 1px solid #DDDDDD;
+  border: 1px solid #1a1a3e;
   border-radius: var(--radius-btn);
   font-family: var(--font-body);
   font-size: 0.95rem;
