@@ -262,12 +262,22 @@
        En Elementor: Templates > Popup
   ══════════════════════════════════════ -->
   <div class="popup-overlay" id="popup">
-    <div class="popup-box">
-      <button class="popup-close" id="popupClose">✕</button>
-      <div style="font-size:2.5rem; margin-bottom:16px">🎨</div>
-      <h3>¿Querés una web que venda?</h3>
-      <p>Solicitá tu presupuesto gratuito y te respondemos en 24 hs.</p>
-      <a href="contacto.html" class="btn btn-primary" style="width:100%">Solicitar presupuesto</a>
+    <div class="popup-box" style="padding:0; overflow:hidden; max-width:420px">
+      <button class="popup-close" id="popupClose" style="position:absolute; top:12px; right:16px; z-index:2; background:rgba(0,0,0,0.4); color:#fff; border-radius:50%; width:32px; height:32px; display:flex; align-items:center; justify-content:center; border:none; cursor:pointer; font-size:1rem">✕</button>
+      <!-- Imagen 4:5 -->
+      <div style="aspect-ratio:4/5; width:100%; overflow:hidden; max-height:260px">
+        <img
+          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80"
+          alt="Forma Studio"
+          style="width:100%; height:100%; object-fit:cover; object-position:center top"
+        >
+      </div>
+      <!-- Contenido -->
+      <div style="padding:28px 32px 32px; text-align:center">
+        <h3 style="margin-bottom:8px">¿Querés una web que venda?</h3>
+        <p style="margin-bottom:24px">Solicitá tu presupuesto gratuito y te respondemos en 24 hs.</p>
+        <a href="contacto.html" class="btn btn-primary" style="width:100%; display:block">Solicitar presupuesto</a>
+      </div>
     </div>
   </div>
 
