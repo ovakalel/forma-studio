@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tareas del Curso — Forma Studio | Centro Kandinsky</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --primary:   #E8402A;
+      --secondary: #1A1A3E;
+      --accent:    #00C2CB;
+      --cream:     #F5F0EB;
+      --white:     #FFFFFF;
+      --black:     #111111;
+      --gray:      #666666;
+      --gray-light:#EEEEEE;
+      --font-h:    'Montserrat', sans-serif;
+      --font-b:    'DM Sans', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-b); color: var(--black); background: var(--white); line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── HEADER ── */
+    .top-bar {
+      background: var(--primary);
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    }
+    .top-bar .logo {
+      font-family: var(--font-h);
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--white);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .top-bar .logo-icon {
+      width: 32px; height: 32px;
+      background: var(--white); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; color: var(--primary); font-size: 0.9rem;
+    }
+    .top-bar .badge {
+      background: rgba(255,255,255,0.2);
+      color: var(--white);
+      font-family: var(--font-h);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--secondary) 0%, #2a2a6b 100%);
+      padding: 64px 24px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-family: var(--font-h);
+      font-weight: 700;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero p { color: rgba(255,255,255,0.7); max-width: 560px; margin: 0 auto 24px; }
+    .hero-chips { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .chip {
+      background: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.85);
+      font-family: var(--font-h);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 64px 0; }
+
+    /* ── MODULE NAV ── */
+    .module-nav {
+      background: var(--cream);
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--gray-light);
+      position: sticky; top: 60px; z-index: 90;
+    }
+    .module-nav-inner {
+      max-width: 900px; margin: 0 auto;
+      display: flex; gap: 8px; flex-wrap: wrap;
+    }
+    .module-nav a {
+      font-family: var(--font-h);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: var(--white);
+      color: var(--gray);
+      border: 1px solid var(--gray-light);
+      transition: all 0.2s;
+    }
+    .module-nav a:hover { background: var(--primary); color: var(--white); border-color: var(--primary); }
+
+    /* ── TASK CARD ── */
+    .task-card {
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+    .task-header {
+      background: var(--secondary);
+      padding: 28px 32px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .task-num {
+      font-family: var(--font-h);
+      font-weight: 800;
+      font-size: 2.5rem;
+      color: rgba(255,255,255,0.15);
+      line-height: 1;
+      min-width: 56px;
+    }
+    .task-header-text h2 {
+      font-family: var(--font-h);
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .task-header-text p {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.88rem;
+      margin: 0;
+    }
+    .task-tag {
+      margin-left: auto;
+      background: var(--primary);
+      color: var(--white);
+      font-family: var(--font-h);
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+      align-self: flex-start;
+    }
+    .task-body { padding: 32px; }
+
+    /* ── OBJECTIVE BOX ── */
+    .objective-box {
+      background: var(--cream);
+      border-left: 4px solid var(--primary);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin-bottom: 28px;
+    }
+    .objective-box .label {
+      font-family: var(--font-h);
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+    .objective-box p { color: var(--black); font-weight: 500; margin: 0; }
+
+    /* ── STEPS ── */
+    .steps-title {
+      font-family: var(--font-h);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+    .step {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 14px;
+      align-items: flex-start;
+    }
+    .step-num {
+      width: 28px; height: 28px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-h);
+      font-weight: 700;
+      font-size: 0.78rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .step p { margin: 0; font-size: 0.92rem; color: var(--black); }
+    .step p strong { color: var(--secondary); }
+
+    /* ── DIVIDER ── */
+    .task-divider {
+      border: none;
+      border-top: 1px solid var(--gray-light);
+      margin: 24px 0;
+    }
+
+    /* ── CHECKLIST ── */
+    .checklist-title {
+      font-family: var(--font-h);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gray);
+      margin-bottom: 14px;
+    }
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .check-box {
+      width: 20px; height: 20px;
+      border: 2px solid var(--gray-light);
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .check-item p { margin: 0; font-size: 0.88rem; color: var(--gray); }
+
+    /* ── TOOLS ── */
+    .tools-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .tool-chip {
+      background: rgba(26,26,62,0.07);
+      color: var(--secondary);
+      font-family: var(--font-h);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 20px;
+    }
+    .tool-chip.ia {
+      background: rgba(0,194,203,0.1);
+      color: #008a90;
+    }
+
+    /* ── DELIVERABLE ── */
+    .deliverable-box {
+      background: rgba(232,64,42,0.06);
+      border: 1px solid rgba(232,64,42,0.2);
+      border-radius: 8px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .deliverable-box i { color: var(--primary); margin-top: 3px; }
+    .deliverable-box p { margin: 0; font-size: 0.88rem; }
+    .deliverable-box strong { display: block; font-family: var(--font-h); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--primary); margin-bottom: 3px; }
+
+    /* ── PROMPT BOX ── */
+    .prompt-box {
+      background: var(--secondary);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 24px;
+    }
+    .prompt-header {
+      background: rgba(255,255,255,0.08);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .prompt-header .ia-dot {
+      width: 8px; height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+    .prompt-header span {
+      font-family: var(--font-h);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+    }
+    .prompt-body { padding: 20px; }
+    .prompt-part { margin-bottom: 14px; }
+    .prompt-part:last-child { margin-bottom: 0; }
+    .prompt-part .pp-label {
+      font-family: var(--font-h);
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .prompt-part p {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.85rem;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* ── REF LINK ── */
+    .ref-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--cream);
+      border: 1px solid var(--gray-light);
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 0.85rem;
+      color: var(--secondary);
+      margin-top: 16px;
+      transition: background 0.2s;
+    }
+    .ref-link:hover { background: var(--gray-light); }
+    .ref-link i { color: var(--primary); }
+
+    /* ── TWO COL ── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+
+    /* ── FOOTER ── */
+    .site-footer-mini {
+      background: var(--secondary);
+      padding: 24px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .site-footer-mini p { color: rgba(255,255,255,0.5); font-size: 0.8rem; margin: 0; }
+    .site-footer-mini span { color: var(--primary); }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="top-bar">
+    <div class="logo">
+      <div class="logo-icon">F</div>
+      Forma Studio
+    </div>
+    <span class="badge">Tareas del Curso · Centro Kandinsky 2025</span>
+  </div>
+
+  <!-- MÓDULO NAV -->
+  <nav class="module-nav">
+    <div class="module-nav-inner">
+      <a href="#m1">M1 · Instalación</a>
+      <a href="#m2">M2 · Diseño</a>
+      <a href="#m3">M3 · Header & Footer</a>
+      <a href="#m4">M4 · Contacto</a>
+      <a href="#m5">M5 · Landing Page</a>
+      <a href="#m6">M6 · Blog</a>
+      <a href="#m7">M7 · Testimonios</a>
+      <a href="#m8">M8 · Práctica Final</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Tareas del Curso<br><span>Diseño Web con WordPress</span></h1>
+    <p>8 módulos · 8 tareas prácticas · Referencia de maquetado en Forma Studio</p>
+    <div class="hero-chips">
+      <span class="chip"><i class="fab fa-wordpress"></i> WordPress + Elementor Pro</span>
+      <span class="chip"><i class="fas fa-robot"></i> IA integrada en cada módulo</span>
+      <span class="chip"><i class="fas fa-map-marker-alt"></i> Córdoba · Centro Kandinsky</span>
+    </div>
+  </div>
+
+  <!-- TAREAS -->
+  <div class="container">
+    <div class="section">
+
+      <!-- ═══════════════════════════════ MÓDULO 1 ═══ -->
+      <div class="task-card" id="m1">
+        <div class="task-header">
+          <div class="task-num">01</div>
+          <div class="task-header-text">
+            <h2>Instalación y Primeros Pasos</h2>
+            <p>WordPress · Local by Flywheel · Elementor · Widgets básicos</p>
+          </div>
+          <span class="task-tag">Card de Servicio</span>
+        </div>
+        <div class="task-body">
+          <div class="objective-box">
+            <div class="label">Objetivo</div>
+            <p>Instalar WordPress localmente, conocer la interfaz de Elementor y construir tu primera card de servicio usando 4 widgets básicos.</p>
+          </div>
+
+          <p class="steps-title">Pasos</p>
+          <div class="step"><div class="step-num">1</div><p>Descargá e instalá <strong>Local by Flywheel</strong>. Creá un nuevo sitio llamado <strong>"forma-studio"</strong>.</p></div>
+          <div class="step"><div class="step-num">2</div><p>Instalá el plugin <strong>Elementor</strong> desde el panel de WordPress (Plugins → Añadir nuevo).</p></div>
+          <div class="step"><div class="step-num">3</div><p>Activá el tema <strong>Hello Elementor</strong> desde Apariencia → Temas.</p></div>
+          <div class="step"><div class="step-num">4</div><p>Creá una página nueva llamada <strong>"Servicios"</strong> y abrila con Elementor.</p></div>
+          <div class="step"><div class="step-num">5</div><p>Armá una card usando 4 widgets en este orden: <strong>Image → Heading → Text Editor → Button</strong>. Referencia: <a href="https://forma-studio-h5yl.vercel.app/modulo-1" target="_blank" style="color:var(--primary)">forma-studio-h5yl.vercel.app/modulo-1</a></p></div>
+          <div class="step"><div class="step-num">6</div><p>Aplicá los colores del design system: botón <strong>#E8402A</strong>, tipografía <strong>Montserrat 700</strong>.</p></div>
+
+          <hr class="task-divider">
+          <div class="two-col">
+            <div>
+              <p class="checklist-title">Checklist de entrega</p>
+              <div class="check-item"><div class="check-box"></div><p>WordPress instalado y funcionando en Local</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Elementor activo con tema Hello Elementor</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Card con los 4 widgets correctos</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Colores y tipografía del design system aplicados</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Captura de pantalla del resultado final</p></div>
+            </div>
+            <div>
+              <p class="checklist-title">Herramientas</p>
+              <div class="tools-row">
+                <span class="tool-chip">Local by Flywheel</span>
+                <span class="tool-chip">WordPress</span>
+                <span class="tool-chip">Elementor</span>
+                <span class="tool-chip ia"><i class="fas fa-robot"></i> ChatGPT</span>
+              </div>
+              <div class="deliverable-box" style="margin-top:16px">
+                <i class="fas fa-paper-plane"></i>
+                <div><strong>Entregable</strong>Captura de pantalla de la card terminada en Elementor.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="prompt-box">
+            <div class="prompt-header"><div class="ia-dot"></div><span>Prompt de IA sugerido · ChatGPT</span></div>
+            <div class="prompt-body">
+              <div class="prompt-part"><div class="pp-label">1. Contexto</div><p>Actuá como redactor web. Estoy creando una card de servicio para un estudio de diseño llamado Forma Studio, ubicado en Córdoba, Argentina.</p></div>
+              <div class="prompt-part"><div class="pp-label">2. Objetivo</div><p>Necesito el texto para 3 cards de servicios: Diseño Web, Branding e Identidad, y Redes Sociales.</p></div>
+              <div class="prompt-part"><div class="pp-label">3. Tareas específicas</div><p>1. Escribir un título corto (2-3 palabras). 2. Escribir una descripción de 2 líneas. 3. Texto para el botón CTA.</p></div>
+              <div class="prompt-part"><div class="pp-label">4. Formato de salida</div><p>Tabla con columnas: Servicio | Título | Descripción | CTA.</p></div>
+              <div class="prompt-part"><div class="pp-label">5. Restricciones</div><p>Tono profesional y cercano. Máximo 20 palabras por descripción. Sin tecnicismos.</p></div>
+            </div>
+          </div>
+
+          <a class="ref-link" href="https://forma-studio-h5yl.vercel.app/modulo-1" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Ver referencia del Módulo 1 en Forma Studio
+          </a>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════ MÓDULO 2 ═══ -->
+      <div class="task-card" id="m2">
+        <div class="task-header">
+          <div class="task-num">02</div>
+          <div class="task-header-text">
+            <h2>Diseño de Páginas con Elementor</h2>
+            <p>Jerarquía visual · Estilos globales · Sección Quiénes Somos</p>
+          </div>
+          <span class="task-tag">Quiénes Somos</span>
+        </div>
+        <div class="task-body">
+          <div class="objective-box">
+            <div class="label">Objetivo</div>
+            <p>Diseñar la página "Quiénes Somos" completa aplicando jerarquía visual, tipografías, colores globales y los widgets de contenido de Elementor.</p>
+          </div>
+
+          <p class="steps-title">Pasos</p>
+          <div class="step"><div class="step-num">1</div><p>Configurá los <strong>Estilos Globales</strong> en Elementor: colores primario <strong>#E8402A</strong>, secundario <strong>#1A1A3E</strong>, acento <strong>#00C2CB</strong>.</p></div>
+          <div class="step"><div class="step-num">2</div><p>Configurá las tipografías globales: Heading → <strong>Montserrat 700</strong> · Body → <strong>DM Sans 400</strong>.</p></div>
+          <div class="step"><div class="step-num">3</div><p>Creá la página "Quiénes Somos" con una <strong>Section hero</strong> con imagen de fondo y overlay oscuro.</p></div>
+          <div class="step"><div class="step-num">4</div><p>Agregá la sección de presentación: <strong>2 columnas</strong> (imagen + texto con descripción del estudio).</p></div>
+          <div class="step"><div class="step-num">5</div><p>Creá la sección <strong>Misión / Visión / Valores</strong>: 3 columnas con Icon Box cada una.</p></div>
+          <div class="step"><div class="step-num">6</div><p>Agregá la sección de <strong>equipo</strong>: grilla de 3 columnas con foto, nombre, cargo y redes sociales.</p></div>
+
+          <hr class="task-divider">
+          <div class="two-col">
+            <div>
+              <p class="checklist-title">Checklist de entrega</p>
+              <div class="check-item"><div class="check-box"></div><p>Estilos globales configurados (colores + tipografías)</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Hero con imagen de fondo y overlay</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Sección 2 columnas imagen + texto</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Misión / Visión / Valores con Icon Box</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Sección equipo con fotos y datos</p></div>
+            </div>
+            <div>
+              <p class="checklist-title">Herramientas</p>
+              <div class="tools-row">
+                <span class="tool-chip">Elementor Pro</span>
+                <span class="tool-chip">Icon Box</span>
+                <span class="tool-chip ia"><i class="fas fa-robot"></i> ChatGPT</span>
+              </div>
+              <div class="deliverable-box" style="margin-top:16px">
+                <i class="fas fa-paper-plane"></i>
+                <div><strong>Entregable</strong>Captura de la página completa en desktop.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="prompt-box">
+            <div class="prompt-header"><div class="ia-dot"></div><span>Prompt de IA sugerido · ChatGPT</span></div>
+            <div class="prompt-body">
+              <div class="prompt-part"><div class="pp-label">1. Contexto</div><p>Actuá como redactor profesional especializado en comunicación institucional y redacción web. Estoy desarrollando la sección "Quiénes Somos" para Forma Studio, un estudio de diseño web de Córdoba, Argentina.</p></div>
+              <div class="prompt-part"><div class="pp-label">2. Objetivo</div><p>Redactar el texto completo de la sección transmitiendo identidad, valores y propósito del estudio.</p></div>
+              <div class="prompt-part"><div class="pp-label">3. Tareas específicas</div><p>1. Párrafo de presentación. 2. Texto de Misión, Visión y Valores (por separado). 3. Cierre que conecte con el lector.</p></div>
+              <div class="prompt-part"><div class="pp-label">4. Formato de salida</div><p>Texto en formato Word-style (párrafos corridos, sin viñetas).</p></div>
+              <div class="prompt-part"><div class="pp-label">5. Restricciones</div><p>Breve, natural y profesional. Sin tecnicismos. Tono positivo y humano.</p></div>
+            </div>
+          </div>
+
+          <a class="ref-link" href="https://forma-studio-h5yl.vercel.app/quienes-somos" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Ver referencia: Quiénes Somos en Forma Studio
+          </a>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════ MÓDULO 3 ═══ -->
+      <div class="task-card" id="m3">
+        <div class="task-header">
+          <div class="task-num">03</div>
+          <div class="task-header-text">
+            <h2>Header, Footer y Diseño Responsive</h2>
+            <p>Theme Builder · Menú de navegación · Mobile / Tablet</p>
+          </div>
+          <span class="task-tag">Header + Footer</span>
+        </div>
+        <div class="task-body">
+          <div class="objective-box">
+            <div class="label">Objetivo</div>
+            <p>Crear el header y footer globales del sitio usando el Theme Builder de Elementor, y adaptar el diseño a mobile y tablet.</p>
+          </div>
+
+          <p class="steps-title">Pasos</p>
+          <div class="step"><div class="step-num">1</div><p>Creá el menú de navegación en <strong>Apariencia → Menús</strong> con las páginas: Inicio, Quiénes Somos, Blog, Contacto.</p></div>
+          <div class="step"><div class="step-num">2</div><p>Andá a <strong>Plantillas → Theme Builder → Header</strong> y creá una plantilla nueva.</p></div>
+          <div class="step"><div class="step-num">3</div><p>Diseñá el header con fondo <strong>#E8402A</strong>: Site Logo izq. + WordPress Menu centro/der. + íconos de redes.</p></div>
+          <div class="step"><div class="step-num">4</div><p>Creá el <strong>Footer</strong> en Theme Builder. Estructura de 3 columnas: logo+descripción | info de contacto | horarios.</p></div>
+          <div class="step"><div class="step-num">5</div><p>Activá el <strong>modo Responsive</strong> y ajustá para Tablet (768px) y Mobile (375px). Usá hamburger menu en mobile.</p></div>
+          <div class="step"><div class="step-num">6</div><p>Asigná las condiciones de display: <strong>"Todo el sitio"</strong> para que el header y footer aparezcan en todas las páginas.</p></div>
+
+          <hr class="task-divider">
+          <div class="two-col">
+            <div>
+              <p class="checklist-title">Checklist de entrega</p>
+              <div class="check-item"><div class="check-box"></div><p>Menú de navegación creado con 4 páginas</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Header global con logo, menú e íconos sociales</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Footer global con 3 columnas de información</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Vista mobile con menú hamburguesa</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Display conditions aplicadas a todo el sitio</p></div>
+            </div>
+            <div>
+              <p class="checklist-title">Herramientas</p>
+              <div class="tools-row">
+                <span class="tool-chip">Theme Builder</span>
+                <span class="tool-chip">WordPress Menús</span>
+                <span class="tool-chip ia"><i class="fas fa-robot"></i> ChatGPT</span>
+              </div>
+              <div class="deliverable-box" style="margin-top:16px">
+                <i class="fas fa-paper-plane"></i>
+                <div><strong>Entregable</strong>Captura desktop + mobile del header y footer.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="prompt-box">
+            <div class="prompt-header"><div class="ia-dot"></div><span>Prompt de IA sugerido · ChatGPT</span></div>
+            <div class="prompt-body">
+              <div class="prompt-part"><div class="pp-label">1. Contexto</div><p>Actuá como diseñador UX/UI experto en WordPress. Estoy desarrollando el header y footer de Forma Studio, un estudio de diseño de Córdoba.</p></div>
+              <div class="prompt-part"><div class="pp-label">2. Objetivo</div><p>Definir la estructura visual y funcional del header y footer, con sus elementos y jerarquía.</p></div>
+              <div class="prompt-part"><div class="pp-label">3. Tareas específicas</div><p>1. Definir elementos del header. 2. Definir elementos del footer. 3. Sugerir buenas prácticas UX. 4. Indicar adaptaciones para mobile.</p></div>
+              <div class="prompt-part"><div class="pp-label">4. Formato de salida</div><p>Tabla: Elemento | Descripción / función.</p></div>
+              <div class="prompt-part"><div class="pp-label">5. Restricciones</div><p>Enfocado en diseño y usabilidad. Sin tecnicismos. Profesional y conciso.</p></div>
+            </div>
+          </div>
+
+          <a class="ref-link" href="https://forma-studio-h5yl.vercel.app" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Ver referencia: Header y Footer en Forma Studio
+          </a>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════ MÓDULO 4 ═══ -->
+      <div class="task-card" id="m4">
+        <div class="task-header">
+          <div class="task-num">04</div>
+          <div class="task-header-text">
+            <h2>Página de Contacto y Formularios</h2>
+            <p>Hero parallax · Widget Form · Google Maps · Íconos de contacto</p>
+          </div>
+          <span class="task-tag">Contacto</span>
+        </div>
+        <div class="task-body">
+          <div class="objective-box">
+            <div class="label">Objetivo</div>
+            <p>Crear la página de contacto completa: hero con efecto parallax, formulario funcional, datos de contacto con íconos y mapa de Google.</p>
+          </div>
+
+          <p class="steps-title">Pasos</p>
+          <div class="step"><div class="step-num">1</div><p>Creá la página "Contacto" y agregá un <strong>hero con imagen de fondo fija (parallax)</strong>. Section → Background → Attachment: Fixed.</p></div>
+          <div class="step"><div class="step-num">2</div><p>Diseñá la sección principal en <strong>2 columnas</strong>: izquierda formulario, derecha datos de contacto.</p></div>
+          <div class="step"><div class="step-num">3</div><p>Configurá el <strong>Widget Form</strong> con campos: Nombre, Mail, WhatsApp, Mensaje. Botón "ENVIAR".</p></div>
+          <div class="step"><div class="step-num">4</div><p>Configurá la <strong>acción post-envío</strong> del formulario: redirigir a la página Thank You.</p></div>
+          <div class="step"><div class="step-num">5</div><p>Agregá los datos de contacto con <strong>Icon List</strong>: dirección, email, horario, teléfono. Íconos Font Awesome.</p></div>
+          <div class="step"><div class="step-num">6</div><p>Agregá el <strong>Widget Google Maps</strong> en una section de 1 columna debajo del formulario. Zoom: 13.</p></div>
+
+          <hr class="task-divider">
+          <div class="two-col">
+            <div>
+              <p class="checklist-title">Checklist de entrega</p>
+              <div class="check-item"><div class="check-box"></div><p>Hero con imagen de fondo y efecto parallax</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Formulario con 4 campos + botón enviar</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Redirección a página Thank You configurada</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Datos de contacto con íconos Font Awesome</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Google Maps integrado y funcional</p></div>
+            </div>
+            <div>
+              <p class="checklist-title">Herramientas</p>
+              <div class="tools-row">
+                <span class="tool-chip">Widget Form</span>
+                <span class="tool-chip">WP Mail SMTP</span>
+                <span class="tool-chip">Google Maps</span>
+                <span class="tool-chip ia"><i class="fas fa-robot"></i> ChatGPT</span>
+              </div>
+              <div class="deliverable-box" style="margin-top:16px">
+                <i class="fas fa-paper-plane"></i>
+                <div><strong>Entregable</strong>Captura de la página completa + prueba de envío del formulario.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="prompt-box">
+            <div class="prompt-header"><div class="ia-dot"></div><span>Prompt de IA sugerido · ChatGPT</span></div>
+            <div class="prompt-body">
+              <div class="prompt-part"><div class="pp-label">1. Contexto</div><p>Soy diseñador web y estoy desarrollando la página de contacto de Forma Studio en WordPress con Elementor Pro. El formulario se conectará con WP Mail SMTP.</p></div>
+              <div class="prompt-part"><div class="pp-label">2. Objetivo</div><p>Generar la estructura y el contenido completo de la página de contacto: títulos, campos del form, mensajes de éxito/error y CTA.</p></div>
+              <div class="prompt-part"><div class="pp-label">3. Tareas específicas</div><p>1. Redactar encabezado y subtítulo. 2. Sugerir campos del formulario. 3. Mensaje de confirmación de envío. 4. Proponer layout visual por secciones.</p></div>
+              <div class="prompt-part"><div class="pp-label">4. Formato de salida</div><p>Tabla: Sección | Contenido | Recomendaciones de diseño (Elementor).</p></div>
+              <div class="prompt-part"><div class="pp-label">5. Restricciones</div><p>Tono amable y cercano. Lenguaje sencillo. Sin exceso de texto.</p></div>
+            </div>
+          </div>
+
+          <a class="ref-link" href="https://forma-studio-h5yl.vercel.app/contacto" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Ver referencia: Contacto en Forma Studio
+          </a>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════ MÓDULO 5 ═══ -->
+      <div class="task-card" id="m5">
+        <div class="task-header">
+          <div class="task-num">05</div>
+          <div class="task-header-text">
+            <h2>Landing Page para Conversión</h2>
+            <p>Hero · Beneficios · CTA · Testimonios · Formulario · Countdown</p>
+          </div>
+          <span class="task-tag">Home / Landing</span>
+        </div>
+        <div class="task-body">
+          <div class="objective-box">
+            <div class="label">Objetivo</div>
+            <p>Crear una landing page comercial completa con propuesta de valor clara, secciones de conversión y CTA visible. Referencia: Forma Studio Home.</p>
+          </div>
+
+          <p class="steps-title">Pasos</p>
+          <div class="step"><div class="step-num">1</div><p>Creá la página <strong>"Landing de Producto"</strong> y diseñá el hero con título, subtítulo y 2 botones (primario + outline).</p></div>
+          <div class="step"><div class="step-num">2</div><p>Redactá la <strong>propuesta de valor</strong> con IA (título + subtítulo que comuniquen el beneficio principal).</p></div>
+          <div class="step"><div class="step-num">3</div><p>Agregá la sección de <strong>beneficios en 3 columnas</strong>: imagen o ícono + título + descripción + botón.</p></div>
+          <div class="step"><div class="step-num">4</div><p>Creá una sección <strong>zigzag</strong> (2 columnas alternadas imagen+texto) para mostrar 2 beneficios principales.</p></div>
+          <div class="step"><div class="step-num">5</div><p>Agregá una sección de <strong>testimonios</strong> con 3 cards (texto + nombre + cargo).</p></div>
+          <div class="step"><div class="step-num">6</div><p>Finalizá con un <strong>CTA banner</strong> destacado y formulario breve de contacto. Probá en mobile.</p></div>
+
+          <hr class="task-divider">
+          <div class="two-col">
+            <div>
+              <p class="checklist-title">Checklist de entrega</p>
+              <div class="check-item"><div class="check-box"></div><p>Hero con propuesta de valor y 2 CTAs</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Sección de beneficios en 3 columnas</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Layout zigzag imagen + texto</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Sección de testimonios (mínimo 3)</p></div>
+              <div class="check-item"><div class="check-box"></div><p>CTA banner final visible</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Vista mobile revisada y ajustada</p></div>
+            </div>
+            <div>
+              <p class="checklist-title">Herramientas</p>
+              <div class="tools-row">
+                <span class="tool-chip">Elementor Pro</span>
+                <span class="tool-chip">Countdown</span>
+                <span class="tool-chip ia"><i class="fas fa-robot"></i> ChatGPT</span>
+                <span class="tool-chip ia"><i class="fas fa-robot"></i> Google AI Studio</span>
+              </div>
+              <div class="deliverable-box" style="margin-top:16px">
+                <i class="fas fa-paper-plane"></i>
+                <div><strong>Entregable</strong>Captura desktop + mobile. Compartir URL local.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="prompt-box">
+            <div class="prompt-header"><div class="ia-dot"></div><span>Prompt de IA sugerido · ChatGPT</span></div>
+            <div class="prompt-body">
+              <div class="prompt-part"><div class="pp-label">1. Contexto</div><p>Actuá como copywriter especializado en landing pages de conversión. Estoy creando una landing para Forma Studio, estudio de diseño web de Córdoba.</p></div>
+              <div class="prompt-part"><div class="pp-label">2. Objetivo</div><p>Generar todos los textos de la landing: hero, beneficios, testimonios y CTAs.</p></div>
+              <div class="prompt-part"><div class="pp-label">3. Tareas específicas</div><p>1. Título y subtítulo del hero. 2. Textos para 3 cards de beneficios. 3. 3 testimonios ficticios con nombre y cargo. 4. Texto del CTA final.</p></div>
+              <div class="prompt-part"><div class="pp-label">4. Formato de salida</div><p>Secciones separadas, listo para copiar en Elementor.</p></div>
+              <div class="prompt-part"><div class="pp-label">5. Restricciones</div><p>Tono persuasivo pero honesto. Frases cortas. Enfocado en emprendedores y profesionales independientes.</p></div>
+            </div>
+          </div>
+
+          <a class="ref-link" href="https://forma-studio-h5yl.vercel.app" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Ver referencia: Home / Landing en Forma Studio
+          </a>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════ MÓDULO 6 ═══ -->
+      <div class="task-card" id="m6">
+        <div class="task-header">
+          <div class="task-num">06</div>
+          <div class="task-header-text">
+            <h2>Blog y Publicación de Contenidos</h2>
+            <p>Entradas · Single Post Template · Loop Grid · Categorías</p>
+          </div>
+          <span class="task-tag">Blog</span>
+        </div>
+        <div class="task-body">
+          <div class="objective-box">
+            <div class="label">Objetivo</div>
+            <p>Crear 2 entradas de blog profesionales, diseñar la plantilla de post individual en Theme Builder y publicar el archivo del blog.</p>
+          </div>
+
+          <p class="steps-title">Pasos</p>
+          <div class="step"><div class="step-num">1</div><p>Creá 2 categorías en <strong>Entradas → Categorías</strong>: "Diseño Web" y "Branding".</p></div>
+          <div class="step"><div class="step-num">2</div><p>Redactá la primera entrada con IA: título, imagen destacada, introducción, desarrollo (H2/H3), cierre. Asigná categoría y etiquetas.</p></div>
+          <div class="step"><div class="step-num">3</div><p>Redactá la segunda entrada siguiendo la misma estructura. Agregá extracto en ambas.</p></div>
+          <div class="step"><div class="step-num">4</div><p>Diseñá la <strong>plantilla Single Post</strong> en Plantillas → Theme Builder → Entrada Individual.</p></div>
+          <div class="step"><div class="step-num">5</div><p>Creá la <strong>página de Blog</strong> con el widget <strong>Loop Grid</strong> mostrando las entradas en 3 columnas.</p></div>
+          <div class="step"><div class="step-num">6</div><p>Revisá la jerarquía textual: H2 y H3 correctamente usados, párrafos cortos, buena legibilidad en mobile.</p></div>
+
+          <hr class="task-divider">
+          <div class="two-col">
+            <div>
+              <p class="checklist-title">Checklist de entrega</p>
+              <div class="check-item"><div class="check-box"></div><p>2 entradas publicadas con imagen destacada</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Jerarquía H2/H3 aplicada en el contenido</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Categorías, etiquetas y extracto en cada entrada</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Plantilla Single Post diseñada en Theme Builder</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Página Blog con Loop Grid funcionando</p></div>
+            </div>
+            <div>
+              <p class="checklist-title">Herramientas</p>
+              <div class="tools-row">
+                <span class="tool-chip">Loop Grid</span>
+                <span class="tool-chip">Theme Builder</span>
+                <span class="tool-chip ia"><i class="fas fa-robot"></i> ChatGPT</span>
+                <span class="tool-chip ia"><i class="fas fa-robot"></i> Notion AI</span>
+              </div>
+              <div class="deliverable-box" style="margin-top:16px">
+                <i class="fas fa-paper-plane"></i>
+                <div><strong>Entregable</strong>Captura del archivo de blog + captura de un post individual.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="prompt-box">
+            <div class="prompt-header"><div class="ia-dot"></div><span>Prompt de IA sugerido · ChatGPT</span></div>
+            <div class="prompt-body">
+              <div class="prompt-part"><div class="pp-label">1. Contexto</div><p>Actuá como redactor de contenidos digitales especializado en diseño y marketing. Estoy creando el blog de Forma Studio, un estudio de diseño web de Córdoba.</p></div>
+              <div class="prompt-part"><div class="pp-label">2. Objetivo</div><p>Redactar un artículo de blog completo para la categoría "Diseño Web".</p></div>
+              <div class="prompt-part"><div class="pp-label">3. Tareas específicas</div><p>1. Título SEO-friendly. 2. Introducción de 2 párrafos. 3. Desarrollo con 3 subtítulos H2. 4. Cierre con CTA. 5. Meta descripción de 155 caracteres.</p></div>
+              <div class="prompt-part"><div class="pp-label">4. Formato de salida</div><p>Texto con jerarquía clara: H1, H2, H3, párrafos. Listo para copiar en el editor de WordPress.</p></div>
+              <div class="prompt-part"><div class="pp-label">5. Restricciones</div><p>Tono profesional y accesible. Párrafos cortos (máx. 3 líneas). Pensado para emprendedores.</p></div>
+            </div>
+          </div>
+
+          <a class="ref-link" href="https://forma-studio-h5yl.vercel.app/blog" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Ver referencia: Blog en Forma Studio
+          </a>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════ MÓDULO 7 ═══ -->
+      <div class="task-card" id="m7">
+        <div class="task-header">
+          <div class="task-num">07</div>
+          <div class="task-header-text">
+            <h2>Testimonios, Galerías y Pop-ups</h2>
+            <p>Testimonial Carousel · Basic Gallery · Popup con trigger</p>
+          </div>
+          <span class="task-tag">Testimonios + Popup</span>
+        </div>
+        <div class="task-body">
+          <div class="objective-box">
+            <div class="label">Objetivo</div>
+            <p>Crear una sección de testimonios completa con avatares reales, agregar una galería de proyectos y configurar un pop-up estratégico conectado a la landing.</p>
+          </div>
+
+          <p class="steps-title">Pasos</p>
+          <div class="step"><div class="step-num">1</div><p>Dentro de la Landing Page, creá una sección nueva. Agregá título y subtítulo que introduzcan los testimonios.</p></div>
+          <div class="step"><div class="step-num">2</div><p>Insertá 3-4 testimonios usando el <strong>Widget Testimonial</strong> de Elementor Pro. Al menos uno generado con IA.</p></div>
+          <div class="step"><div class="step-num">3</div><p>Generá avatares con IA (ChatGPT o Google AI Studio) y subílos como imagen de autor en cada testimonio.</p></div>
+          <div class="step"><div class="step-num">4</div><p>Ajustá tipografías, colores y espaciado. Revisá en <strong>versión mobile</strong> y hacé los ajustes necesarios.</p></div>
+          <div class="step"><div class="step-num">5</div><p>Creá una <strong>galería de proyectos</strong> con el widget Basic Gallery (mínimo 6 imágenes). Activá Lightbox.</p></div>
+          <div class="step"><div class="step-num">6</div><p>Creá un <strong>pop-up</strong> en Plantillas → Popup. Trigger: tiempo (4 segundos). Conectalo a la página con un botón "Solicitar presupuesto".</p></div>
+
+          <hr class="task-divider">
+          <div class="two-col">
+            <div>
+              <p class="checklist-title">Checklist de entrega</p>
+              <div class="check-item"><div class="check-box"></div><p>Sección de testimonios con título y subtítulo</p></div>
+              <div class="check-item"><div class="check-box"></div><p>3-4 testimonios con texto, nombre y avatar</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Al menos 1 testimonio generado con IA</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Sección adaptada a mobile</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Galería con Lightbox activado</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Pop-up con trigger de tiempo configurado</p></div>
+            </div>
+            <div>
+              <p class="checklist-title">Herramientas</p>
+              <div class="tools-row">
+                <span class="tool-chip">Testimonial Widget</span>
+                <span class="tool-chip">Basic Gallery</span>
+                <span class="tool-chip">Popup Builder</span>
+                <span class="tool-chip ia"><i class="fas fa-robot"></i> ChatGPT</span>
+              </div>
+              <div class="deliverable-box" style="margin-top:16px">
+                <i class="fas fa-paper-plane"></i>
+                <div><strong>Entregable</strong>Captura de sección de testimonios + pop-up abierto + galería.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="prompt-box">
+            <div class="prompt-header"><div class="ia-dot"></div><span>Prompt de IA sugerido · ChatGPT</span></div>
+            <div class="prompt-body">
+              <div class="prompt-part"><div class="pp-label">1. Contexto</div><p>Actuá como cliente satisfecho de Forma Studio, un estudio de diseño web de Córdoba. Necesito testimonios ficticios realistas para usar como placeholders en la web.</p></div>
+              <div class="prompt-part"><div class="pp-label">2. Objetivo</div><p>Generar 4 testimonios verosímiles que transmitan confianza y resultados concretos.</p></div>
+              <div class="prompt-part"><div class="pp-label">3. Tareas específicas</div><p>1. Texto del testimonio (3-4 líneas). 2. Nombre completo ficticio. 3. Cargo o rubro de la persona. 4. Valoración en estrellas (★).</p></div>
+              <div class="prompt-part"><div class="pp-label">4. Formato de salida</div><p>Tabla: Testimonio | Nombre | Cargo | Estrellas.</p></div>
+              <div class="prompt-part"><div class="pp-label">5. Restricciones</div><p>Nombres argentinos. Rubros variados. Tono natural, no corporativo. Mencionar resultados concretos.</p></div>
+            </div>
+          </div>
+
+          <a class="ref-link" href="https://forma-studio-h5yl.vercel.app" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Ver referencia: Testimonios y Pop-up en Forma Studio
+          </a>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════ MÓDULO 8 ═══ -->
+      <div class="task-card" id="m8">
+        <div class="task-header">
+          <div class="task-num">08</div>
+          <div class="task-header-text">
+            <h2>Práctica Final — Proyecto Integrador</h2>
+            <p>Landing Sancor Salud · Testimonios con IA · Mobile · Pop-up</p>
+          </div>
+          <span class="task-tag">Práctica Final</span>
+        </div>
+        <div class="task-body">
+          <div class="objective-box">
+            <div class="label">Objetivo</div>
+            <p>Aplicar todo lo aprendido en el curso: agregar una sección de testimonios completa a la Landing de Sancor Salud, adaptarla a mobile/tablet y conectarla con un pop-up.</p>
+          </div>
+
+          <p class="steps-title">Pasos</p>
+          <div class="step"><div class="step-num">1</div><p>Abrí la <strong>Landing de Sancor Salud</strong> en Elementor y creá una sección nueva para los testimonios.</p></div>
+          <div class="step"><div class="step-num">2</div><p>Agregá un <strong>encabezado y subtítulo</strong> que introduzcan la sección de testimonios.</p></div>
+          <div class="step"><div class="step-num">3</div><p>Insertá <strong>3-4 testimonios</strong> con el Widget Testimonial. Generá los textos y avatares con IA.</p></div>
+          <div class="step"><div class="step-num">4</div><p>Ajustá tipografías, colores y espaciado siguiendo la identidad visual de Sancor Salud.</p></div>
+          <div class="step"><div class="step-num">5</div><p>Configurá la sección en <strong>versión Mobile y Tablet</strong>: ajustar columnas, tamaños y espaciados.</p></div>
+          <div class="step"><div class="step-num">6</div><p>Creá un <strong>Pop-up</strong> que invite a solicitar un presupuesto. Conectalo a la landing con Display Conditions.</p></div>
+
+          <hr class="task-divider">
+          <div class="two-col">
+            <div>
+              <p class="checklist-title">Checklist de entrega</p>
+              <div class="check-item"><div class="check-box"></div><p>Sección de testimonios creada en la landing</p></div>
+              <div class="check-item"><div class="check-box"></div><p>3-4 testimonios con texto + avatar generados con IA</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Diseño coherente con la identidad de Sancor</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Vista mobile y tablet ajustadas correctamente</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Pop-up conectado a la landing y funcionando</p></div>
+              <div class="check-item"><div class="check-box"></div><p>Revisión general del sitio completo</p></div>
+            </div>
+            <div>
+              <p class="checklist-title">Herramientas</p>
+              <div class="tools-row">
+                <span class="tool-chip">Elementor Pro</span>
+                <span class="tool-chip">Popup Builder</span>
+                <span class="tool-chip">Display Conditions</span>
+                <span class="tool-chip ia"><i class="fas fa-robot"></i> ChatGPT</span>
+                <span class="tool-chip ia"><i class="fas fa-robot"></i> Google AI Studio</span>
+              </div>
+              <div class="deliverable-box" style="margin-top:16px">
+                <i class="fas fa-paper-plane"></i>
+                <div><strong>Entregable final</strong>Capturas de la landing completa en desktop, tablet y mobile. Pop-up abierto visible.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="prompt-box">
+            <div class="prompt-header"><div class="ia-dot"></div><span>Prompt de IA sugerido · ChatGPT</span></div>
+            <div class="prompt-body">
+              <div class="prompt-part"><div class="pp-label">1. Contexto</div><p>Actuá como paciente satisfecho de Sancor Salud. Necesito testimonios ficticios realistas para una landing page de medicina prepaga.</p></div>
+              <div class="prompt-part"><div class="pp-label">2. Objetivo</div><p>Generar 4 testimonios que transmitan confianza, cobertura y atención de calidad.</p></div>
+              <div class="prompt-part"><div class="pp-label">3. Tareas específicas</div><p>1. Texto del testimonio (3-4 líneas). 2. Nombre y edad ficticia. 3. Ciudad argentina. 4. Tipo de cobertura o situación mencionada.</p></div>
+              <div class="prompt-part"><div class="pp-label">4. Formato de salida</div><p>Tabla: Testimonio | Nombre | Ciudad | Situación.</p></div>
+              <div class="prompt-part"><div class="pp-label">5. Restricciones</div><p>Tono humano y emotivo. Situaciones cotidianas. Sin exageraciones. Nombres y ciudades argentinas.</p></div>
+            </div>
+          </div>
+
+          <a class="ref-link" href="https://forma-studio-h5yl.vercel.app/thank-you" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Ver referencia: Thank You + 404 en Forma Studio
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="site-footer-mini">
+    <p>Tareas del Curso · Diseño Web con WordPress, UX/UI y Herramientas de IA<br>
+    <span>Centro Kandinsky</span> · Córdoba, Argentina · 2025 · Referencia: <span>forma-studio-h5yl.vercel.app</span></p>
+  </div>
+
+</body>
+</html>
