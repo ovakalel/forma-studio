@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu Web Profesional en 15 días — Forma Studio</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* ══════════════════════════════════════
+       DESIGN SYSTEM — Forma Studio
+       Módulo 5: Landing Page de Conversión
+    ══════════════════════════════════════ */
+    :root {
+      --primary:   #E8402A;
+      --secondary: #1A1A3E;
+      --accent:    #00C2CB;
+      --cream:     #F5F0EB;
+      --white:     #FFFFFF;
+      --black:     #111111;
+      --gray:      #666666;
+      --gray-lt:   #AAAAAA;
+      --font-h:    'Montserrat', sans-serif;
+      --font-b:    'DM Sans', sans-serif;
+      --radius:    6px;
+      --shadow:    0 4px 24px rgba(0,0,0,0.09);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-b); color: var(--black); background: var(--white); line-height: 1.6; }
+    img  { max-width: 100%; display: block; }
+    a    { text-decoration: none; color: inherit; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .section    { padding: 88px 0; }
+    .bg-cream   { background: var(--cream); }
+    .bg-navy    { background: var(--secondary); }
+    .text-center{ text-align: center; }
+
+    /* ── TIPOGRAFÍA ── */
+    h1,h2,h3,h4 { font-family: var(--font-h); line-height: 1.15; font-weight: 700; }
+    h1 { font-size: clamp(2rem, 4.5vw, 3.6rem); }
+    h2 { font-size: clamp(1.7rem, 3vw, 2.5rem); }
+    h3 { font-size: 1.25rem; }
+    p  { font-size: 1rem; color: var(--gray); }
+
+    .tag {
+      display: inline-block;
+      background: rgba(232,64,42,0.1);
+      color: var(--primary);
+      font-family: var(--font-h);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .divider {
+      width: 52px; height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+      margin: 16px 0;
+    }
+    .divider.center { margin: 16px auto; }
+
+    /* ── BOTONES ── */
+    .btn {
+      display: inline-block;
+      padding: 16px 36px;
+      font-family: var(--font-h);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: none;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
+    .btn-primary  { background: var(--primary);   color: var(--white); }
+    .btn-outline  { background: transparent; color: var(--white); border: 2px solid var(--white); }
+    .btn-outline:hover { background: var(--white); color: var(--secondary); }
+    .btn-navy     { background: var(--secondary); color: var(--white); }
+    .btn-lg { padding: 20px 48px; font-size: 0.92rem; }
+
+    /* ══════════════════════════════════════
+       1 — HEADER (sin navegación — landing)
+    ══════════════════════════════════════ */
+    .site-header {
+      background: var(--primary);
+      padding: 0 24px;
+      height: 62px;
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 1000;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+    }
+    .logo {
+      display: flex; align-items: center; gap: 10px;
+      font-family: var(--font-h); font-weight: 800; font-size: 1.2rem; color: var(--white);
+    }
+    .logo-icon {
+      width: 34px; height: 34px;
+      background: var(--white); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .logo-icon span { font-size: 0.95rem; font-weight: 900; color: var(--primary); font-family: var(--font-h); }
+    .header-cta { font-family: var(--font-h); font-size: 0.78rem; font-weight: 700; color: rgba(255,255,255,0.85); }
+    .header-cta a { color: var(--white); border-bottom: 1px solid rgba(255,255,255,0.4); padding-bottom: 1px; }
+
+    /* ══════════════════════════════════════
+       2 — HERO (Sección 1 — Propuesta de valor)
+       Módulo 5: Hero con CTA principal + botón secundario
+    ══════════════════════════════════════ */
+    .hero-landing {
+      background: linear-gradient(135deg, var(--secondary) 0%, #12123a 60%, #1d1d50 100%);
+      min-height: 92vh;
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+      padding: 100px 0 80px;
+    }
+    .hero-landing::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(232,64,42,0.18) 0%, transparent 65%);
+    }
+    /* Elementos decorativos */
+    .hero-deco {
+      position: absolute; right: -80px; top: 50%; transform: translateY(-50%);
+      width: 580px; height: 580px;
+      border: 1px solid rgba(232,64,42,0.15);
+      border-radius: 50%;
+    }
+    .hero-deco::before {
+      content: '';
+      position: absolute; inset: 40px;
+      border: 1px solid rgba(0,194,203,0.1);
+      border-radius: 50%;
+    }
+    .hero-content {
+      position: relative; z-index: 1;
+      max-width: 680px;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(232,64,42,0.18);
+      border: 1px solid rgba(232,64,42,0.3);
+      color: #ff9070;
+      font-family: var(--font-h); font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      padding: 7px 16px; border-radius: 20px; margin-bottom: 28px;
+    }
+    .hero-tag .dot { width: 6px; height: 6px; background: var(--primary); border-radius: 50%; }
+    .hero-landing h1 { color: var(--white); font-weight: 900; margin-bottom: 12px; }
+    .hero-landing h1 span { color: var(--accent); }
+    .hero-landing .hero-sub {
+      font-size: 1.2rem; color: rgba(255,255,255,0.72); margin-bottom: 36px; max-width: 540px;
+    }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 52px; }
+    .hero-proof {
+      display: flex; gap: 36px; flex-wrap: wrap;
+    }
+    .proof-item { }
+    .proof-item .num {
+      font-family: var(--font-h); font-size: 2rem; font-weight: 900; color: var(--white); line-height: 1;
+    }
+    .proof-item .num span { color: var(--accent); }
+    .proof-item p { font-size: 0.82rem; color: rgba(255,255,255,0.55); margin-top: 2px; }
+
+    /* ══════════════════════════════════════
+       3 — LOGOS DE CONFIANZA
+       Módulo 5: Sección de garantía / prueba social
+    ══════════════════════════════════════ */
+    .trust-bar {
+      background: var(--white);
+      padding: 28px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .trust-bar .inner {
+      display: flex; align-items: center; justify-content: center;
+      gap: 48px; flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 10px;
+      font-family: var(--font-h); font-size: 0.78rem; font-weight: 700;
+      color: var(--gray-lt); text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .trust-item i { color: var(--primary); font-size: 1.1rem; }
+
+    /* ══════════════════════════════════════
+       4 — BENEFICIOS (3 columnas)
+       Módulo 5: Bloque de beneficios
+    ══════════════════════════════════════ */
+    .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+    .benefit-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 36px 28px;
+      box-shadow: var(--shadow);
+      border-top: 4px solid transparent;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .benefit-card:hover { border-color: var(--primary); transform: translateY(-5px); }
+    .benefit-icon {
+      width: 60px; height: 60px;
+      background: rgba(232,64,42,0.08);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+      font-size: 1.4rem; color: var(--primary);
+    }
+    .benefit-card h3 { margin-bottom: 10px; }
+    .benefit-card p  { font-size: 0.92rem; }
+
+    /* ══════════════════════════════════════
+       5 — QUÉ INCLUYE (Zigzag)
+       Módulo 5: Layout alternado imagen + texto
+    ══════════════════════════════════════ */
+    .feature {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+      padding: 56px 0; border-bottom: 1px solid #f0f0f0;
+    }
+    .feature:last-child { border-bottom: none; }
+    .feature.reverse .feat-img { order: 2; }
+    .feature.reverse .feat-text { order: 1; }
+    .feat-img {
+      border-radius: 12px; overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--cream);
+      position: relative;
+    }
+    .feat-img img { width: 100%; height: 100%; object-fit: cover; }
+    .feat-img .img-badge {
+      position: absolute; bottom: 20px; left: 20px;
+      background: var(--primary); color: var(--white);
+      font-family: var(--font-h); font-size: 0.75rem; font-weight: 700;
+      padding: 8px 16px; border-radius: 20px;
+    }
+    .feat-text .step-num {
+      font-family: var(--font-h); font-size: 4rem; font-weight: 900;
+      color: rgba(232,64,42,0.12); line-height: 1; margin-bottom: -10px;
+    }
+    .feat-text h3 {
+      font-size: 1.6rem; margin-bottom: 14px; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .feat-text p  { margin-bottom: 20px; font-size: 1rem; }
+    .feat-list    { list-style: none; margin-bottom: 28px; }
+    .feat-list li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.92rem; color: var(--gray); margin-bottom: 8px;
+    }
+    .feat-list li i { color: var(--primary); font-size: 0.85rem; }
+
+    /* ══════════════════════════════════════
+       6 — COUNTDOWN + CTA BANNER
+       Módulo 5: Widget Countdown + CTA
+    ══════════════════════════════════════ */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--secondary), #12123a);
+      padding: 80px 0; text-align: center; position: relative; overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute; top: -60px; left: 50%; transform: translateX(-50%);
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(232,64,42,0.12), transparent 60%);
+    }
+    .cta-banner h2 { color: var(--white); position: relative; z-index: 1; }
+    .cta-banner h2 span { color: var(--accent); }
+    .cta-banner p { color: rgba(255,255,255,0.65); margin: 14px auto 36px; max-width: 520px; position: relative; z-index: 1; font-size: 1.05rem; }
+
+    /* Countdown */
+    .countdown {
+      display: flex; justify-content: center; gap: 24px;
+      margin-bottom: 40px; position: relative; z-index: 1;
+    }
+    .cd-box {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 10px; padding: 16px 24px; min-width: 90px; text-align: center;
+    }
+    .cd-box .cd-num {
+      font-family: var(--font-h); font-size: 2.5rem; font-weight: 900;
+      color: var(--white); line-height: 1; display: block;
+    }
+    .cd-box .cd-label {
+      font-size: 0.7rem; font-family: var(--font-h); font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-top: 4px; display: block;
+    }
+    .cta-banner .btn { position: relative; z-index: 1; }
+    .cta-note { font-size: 0.8rem; color: rgba(255,255,255,0.45); margin-top: 16px; position: relative; z-index: 1; }
+
+    /* ══════════════════════════════════════
+       7 — TESTIMONIOS
+       Módulo 5: Widget Testimonial Carousel
+    ══════════════════════════════════════ */
+    .testimonial-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .testi-card {
+      background: var(--white); border-radius: 10px; padding: 32px;
+      box-shadow: var(--shadow); border-top: 4px solid var(--primary);
+      display: flex; flex-direction: column;
+    }
+    .testi-stars { color: var(--primary); font-size: 1rem; margin-bottom: 16px; letter-spacing: 2px; }
+    .testi-text  { font-style: italic; color: var(--black); font-size: 0.95rem; line-height: 1.7; flex: 1; margin-bottom: 24px; }
+    .testi-author { display: flex; align-items: center; gap: 14px; }
+    .testi-avatar {
+      width: 48px; height: 48px; border-radius: 50%;
+      overflow: hidden; background: var(--cream); flex-shrink: 0;
+    }
+    .testi-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .testi-author strong { font-family: var(--font-h); font-size: 0.9rem; display: block; }
+    .testi-author span   { font-size: 0.8rem; color: var(--gray-lt); }
+
+    /* ══════════════════════════════════════
+       8 — PRICING TABLE
+       Módulo 5: Widget Pricing Table
+    ══════════════════════════════════════ */
+    .pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; align-items: start; }
+    .pricing-card {
+      background: var(--white); border-radius: 12px; padding: 36px 28px;
+      box-shadow: var(--shadow); position: relative; border: 2px solid transparent;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .pricing-card:hover { transform: translateY(-4px); }
+    .pricing-card.featured {
+      border-color: var(--primary);
+      transform: scale(1.04);
+    }
+    .pricing-card.featured:hover { transform: scale(1.04) translateY(-4px); }
+    .pricing-badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--primary); color: var(--white);
+      font-family: var(--font-h); font-size: 0.7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      padding: 5px 18px; border-radius: 20px; white-space: nowrap;
+    }
+    .pricing-plan { font-family: var(--font-h); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray-lt); margin-bottom: 10px; }
+    .pricing-price {
+      font-family: var(--font-h); font-size: 2.8rem; font-weight: 900; color: var(--black); line-height: 1; margin-bottom: 6px;
+    }
+    .pricing-price sup { font-size: 1.2rem; vertical-align: top; margin-top: 8px; color: var(--primary); }
+    .pricing-price .currency { font-size: 1rem; color: var(--primary); }
+    .pricing-note { font-size: 0.82rem; color: var(--gray-lt); margin-bottom: 24px; }
+    .pricing-divider { border: none; border-top: 1px solid #f0f0f0; margin: 20px 0; }
+    .pricing-features { list-style: none; margin-bottom: 28px; }
+    .pricing-features li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.9rem; color: var(--gray); margin-bottom: 12px;
+    }
+    .pricing-features li i { color: var(--primary); margin-top: 2px; flex-shrink: 0; }
+    .pricing-features li.not-included { opacity: 0.4; }
+    .pricing-features li.not-included i { color: var(--gray-lt); }
+    .pricing-card .btn { width: 100%; text-align: center; display: block; }
+
+    /* ══════════════════════════════════════
+       9 — FORMULARIO DE CONTACTO
+       Módulo 5: Widget Form
+    ══════════════════════════════════════ */
+    .form-section { background: var(--cream); }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .form-info h2 { margin-bottom: 12px; }
+    .form-info .divider { margin: 16px 0; }
+    .form-info p { margin-bottom: 28px; }
+    .form-info-items { display: flex; flex-direction: column; gap: 18px; }
+    .form-info-item { display: flex; align-items: flex-start; gap: 14px; }
+    .form-info-item .fi-icon {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: rgba(232,64,42,0.08);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--primary); font-size: 1rem; flex-shrink: 0;
+    }
+    .form-info-item strong { font-family: var(--font-h); font-size: 0.85rem; display: block; margin-bottom: 2px; }
+    .form-info-item p { font-size: 0.9rem; margin: 0; }
+    .contact-form { background: var(--white); border-radius: 12px; padding: 40px; box-shadow: var(--shadow); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { font-family: var(--font-h); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--secondary); display: block; margin-bottom: 6px; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%; padding: 13px 16px;
+      border: 1.5px solid #1a1a3e;
+      border-radius: var(--radius);
+      font-family: var(--font-b); font-size: 0.95rem;
+      color: var(--black); background: var(--white);
+      transition: border-color 0.2s; outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--primary); }
+    .form-group textarea { height: 130px; resize: vertical; }
+    ::placeholder { color: #BBBBBB; }
+
+    /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
+    .footer-social-bar {
+      background: var(--primary); padding: 18px 0;
+      display: flex; align-items: center; justify-content: center; gap: 0;
+    }
+    .footer-line { width: 80px; height: 3px; background: var(--accent); border-radius: 2px; display: inline-block; vertical-align: middle; margin: 0 16px; }
+    .footer-social-icons { display: flex; gap: 18px; }
+    .footer-social-icons a { color: var(--white); font-size: 1.1rem; opacity: 0.85; transition: opacity 0.2s; }
+    .footer-social-icons a:hover { opacity: 1; }
+    .site-footer { background: var(--secondary); padding: 56px 0 0; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-brand .logo { margin-bottom: 14px; }
+    .footer-brand p { color: rgba(255,255,255,0.55); font-size: 0.88rem; line-height: 1.7; }
+    .footer-col h4 { font-family: var(--font-h); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--white); margin-bottom: 18px; }
+    .footer-info-item { display: flex; gap: 10px; margin-bottom: 12px; }
+    .footer-info-item .fi-icon { color: var(--primary); font-size: 0.95rem; margin-top: 2px; }
+    .footer-info-item p { color: rgba(255,255,255,0.55); font-size: 0.85rem; margin: 0; }
+    .footer-bottom { background: rgba(0,0,0,0.25); padding: 16px 24px; text-align: center; }
+    .footer-bottom p { color: rgba(255,255,255,0.38); font-size: 0.78rem; margin: 0; }
+    .footer-bottom span { color: var(--primary); }
+
+    /* ══════════════════════════════════════
+       POPUP
+       Módulo 5: Widget Popup con trigger
+    ══════════════════════════════════════ */
+    .popup-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.65);
+      z-index: 9999; display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.35s;
+    }
+    .popup-overlay.open { opacity: 1; pointer-events: all; }
+    .popup-box {
+      background: var(--white); border-radius: 14px;
+      max-width: 460px; width: 90%; overflow: hidden; position: relative;
+      transform: translateY(24px); transition: transform 0.35s;
+    }
+    .popup-overlay.open .popup-box { transform: translateY(0); }
+    .popup-img { width: 100%; height: 220px; overflow: hidden; }
+    .popup-img img { width: 100%; height: 100%; object-fit: cover; }
+    .popup-body { padding: 32px 36px 36px; text-align: center; }
+    .popup-body h3 { font-size: 1.4rem; margin-bottom: 8px; }
+    .popup-body p  { margin-bottom: 24px; font-size: 0.95rem; }
+    .popup-close {
+      position: absolute; top: 14px; right: 18px; background: rgba(0,0,0,0.35);
+      border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer;
+      color: var(--white); font-size: 1rem; display: flex; align-items: center; justify-content: center;
+      z-index: 2;
+    }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .grid-3, .testimonial-grid, .pricing-grid { grid-template-columns: repeat(2,1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .section { padding: 60px 0; }
+      .grid-3, .testimonial-grid, .pricing-grid,
+      .form-grid, .form-row, .feature { grid-template-columns: 1fr; gap: 24px; }
+      .feature.reverse .feat-img, .feature.reverse .feat-text { order: unset; }
+      .pricing-card.featured { transform: scale(1); }
+      .hero-proof { gap: 24px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .countdown { gap: 12px; }
+      .cd-box { min-width: 68px; padding: 12px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       HEADER — Sin menú (landing page)
+       Módulo 5: Las landings no tienen menú completo
+  ══════════════════════════════════════ -->
+  <header class="site-header">
+    <a href="index.html" class="logo">
+      <div class="logo-icon"><span>F</span></div>
+      Forma Studio
+    </a>
+    <div class="header-cta">
+      ¿Hablamos? <a href="#contacto">consultá gratis</a>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════
+       SECCIÓN 1 — HERO + PROPUESTA DE VALOR
+       Módulo 5: Hero con H1 + subtítulo + 2 CTAs
+       Widget: Heading + Text + Button × 2
+  ══════════════════════════════════════ -->
+  <section class="hero-landing">
+    <div class="hero-deco"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-tag">
+          <span class="dot"></span>
+          Servicio de Diseño Web Profesional
+        </div>
+        <h1>Tu web lista<br>en <span>15 días.</span><br>Sin código.</h1>
+        <p class="hero-sub">
+          Diseñamos y desarrollamos tu sitio web en WordPress con Elementor Pro, con identidad visual coherente, diseño responsive y optimizado para convertir visitas en clientes.
+        </p>
+        <div class="hero-btns">
+          <a href="#contacto" class="btn btn-primary btn-lg">Quiero mi web ahora</a>
+          <a href="#que-incluye" class="btn btn-outline btn-lg">Ver qué incluye</a>
+        </div>
+        <div class="hero-proof">
+          <div class="proof-item">
+            <div class="num">+<span>80</span></div>
+            <p>sitios lanzados</p>
+          </div>
+          <div class="proof-item">
+            <div class="num"><span>15</span> días</div>
+            <p>tiempo de entrega</p>
+          </div>
+          <div class="proof-item">
+            <div class="num"><span>100</span>%</div>
+            <p>clientes satisfechos</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECCIÓN 2 — IMAGEN / PRUEBA SOCIAL
+       Módulo 5: Logos o sellos de confianza
+       Widget: Image + Text
+  ══════════════════════════════════════ -->
+  <div class="trust-bar">
+    <div class="container">
+      <div class="inner">
+        <div class="trust-item"><i class="fab fa-wordpress"></i> WordPress + Elementor Pro</div>
+        <div class="trust-item"><i class="fas fa-mobile-alt"></i> 100% Responsive</div>
+        <div class="trust-item"><i class="fas fa-search"></i> SEO básico incluido</div>
+        <div class="trust-item"><i class="fas fa-tachometer-alt"></i> Alta performance</div>
+        <div class="trust-item"><i class="fas fa-shield-alt"></i> Soporte post-entrega</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECCIÓN 3 — BENEFICIOS (3 columnas)
+       Módulo 5: Bloque de beneficios
+       Widget: Icon Box × 3
+  ══════════════════════════════════════ -->
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:52px">
+        <span class="tag">Por qué elegirnos</span>
+        <h2>Tu sitio no es un gasto.<br>Es tu mejor vendedor.</h2>
+        <div class="divider center"></div>
+        <p style="max-width:520px;margin:0 auto">Un sitio web bien diseñado trabaja las 24 hs del día captando clientes mientras vos te enfocás en tu negocio.</p>
+      </div>
+      <div class="grid-3">
+        <div class="benefit-card">
+          <div class="benefit-icon"><i class="fas fa-rocket"></i></div>
+          <h3>Entrega en 15 días</h3>
+          <p>Proceso ágil y estructurado. Desde el brief inicial hasta el sitio publicado en tu hosting en solo 15 días hábiles.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon"><i class="fas fa-paint-brush"></i></div>
+          <h3>Diseño a medida</h3>
+          <p>Cada sitio es único. Aplicamos tu paleta de colores, tipografías y estilo visual para que represente 100% tu marca.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Orientado a conversión</h3>
+          <p>Aplicamos principios de UX/UI y copywriting estratégico para que cada página guíe al visitante hacia el contacto o la compra.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon"><i class="fas fa-mobile-alt"></i></div>
+          <h3>Responsive garantizado</h3>
+          <p>Tu sitio se ve perfecto en celular, tablet y desktop. El 70% del tráfico web llega desde dispositivos móviles.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon"><i class="fas fa-search"></i></div>
+          <h3>SEO básico incluido</h3>
+          <p>Configuramos las bases del SEO: metadatos, velocidad de carga, estructura de URLs y Google Search Console.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon"><i class="fas fa-headset"></i></div>
+          <h3>Soporte incluido</h3>
+          <p>30 días de soporte post-lanzamiento sin costo adicional. Cualquier ajuste o consulta, te respondemos en 24 hs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECCIÓN 4 — QUÉ INCLUYE (Zigzag)
+       Módulo 5: Layout alternado imagen + texto
+       Widget: Section 2 cols + Image + Text
+  ══════════════════════════════════════ -->
+  <section class="section" id="que-incluye">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:52px">
+        <span class="tag">Proceso de trabajo</span>
+        <h2>¿Qué incluye tu sitio?</h2>
+        <div class="divider center"></div>
+      </div>
+
+      <div class="feature">
+        <div class="feat-img">
+          <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=700&q=80" alt="Diseño UI">
+          <span class="img-badge">Paso 1 de 4</span>
+        </div>
+        <div class="feat-text">
+          <div class="step-num">01</div>
+          <h3>Brief y Design System</h3>
+          <p>Arrancamos con una reunión para entender tu marca, objetivos y público. Definimos paleta de colores, tipografías y estilo visual antes de escribir una línea de código.</p>
+          <ul class="feat-list">
+            <li><i class="fas fa-check-circle"></i> Reunión de kickoff (1 hs)</li>
+            <li><i class="fas fa-check-circle"></i> Definición del Design System</li>
+            <li><i class="fas fa-check-circle"></i> Mapa del sitio (sitemap)</li>
+            <li><i class="fas fa-check-circle"></i> Aprobación antes de avanzar</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature reverse">
+        <div class="feat-img">
+          <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=700&q=80" alt="Desarrollo WordPress">
+          <span class="img-badge">Paso 2 de 4</span>
+        </div>
+        <div class="feat-text">
+          <div class="step-num">02</div>
+          <h3>Diseño y desarrollo</h3>
+          <p>Construimos el sitio en WordPress con Elementor Pro aplicando el Design System aprobado. Cada página pensada para guiar al usuario hacia la acción deseada.</p>
+          <ul class="feat-list">
+            <li><i class="fas fa-check-circle"></i> Hasta 5 páginas incluidas</li>
+            <li><i class="fas fa-check-circle"></i> Header + Footer global responsive</li>
+            <li><i class="fas fa-check-circle"></i> Formulario de contacto funcional</li>
+            <li><i class="fas fa-check-circle"></i> Google Maps integrado</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feat-img">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80" alt="SEO y Performance">
+          <span class="img-badge">Paso 3 de 4</span>
+        </div>
+        <div class="feat-text">
+          <div class="step-num">03</div>
+          <h3>Optimización y SEO</h3>
+          <p>Antes de publicar, optimizamos la velocidad de carga, comprimimos imágenes en formato WebP y configuramos las bases del SEO para que Google te encuentre.</p>
+          <ul class="feat-list">
+            <li><i class="fas fa-check-circle"></i> Imágenes optimizadas (WebP)</li>
+            <li><i class="fas fa-check-circle"></i> Metadatos y meta descripciones</li>
+            <li><i class="fas fa-check-circle"></i> Google Search Console</li>
+            <li><i class="fas fa-check-circle"></i> SSL y seguridad básica</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature reverse">
+        <div class="feat-img">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700&q=80" alt="Entrega y capacitación">
+          <span class="img-badge">Paso 4 de 4</span>
+        </div>
+        <div class="feat-text">
+          <div class="step-num">04</div>
+          <h3>Entrega y capacitación</h3>
+          <p>Publicamos el sitio en tu hosting y te hacemos una capacitación de 1 hora para que puedas gestionar el contenido de forma autónoma desde el panel de WordPress.</p>
+          <ul class="feat-list">
+            <li><i class="fas fa-check-circle"></i> Publicación en hosting</li>
+            <li><i class="fas fa-check-circle"></i> Capacitación de uso (1 hs)</li>
+            <li><i class="fas fa-check-circle"></i> Manual de administración</li>
+            <li><i class="fas fa-check-circle"></i> 30 días de soporte</li>
+          </ul>
+          <a href="#contacto" class="btn btn-primary">Empezar ahora</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECCIÓN 5 — CTA + COUNTDOWN
+       Módulo 5: Widget Countdown + CTA principal
+  ══════════════════════════════════════ -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Oferta de lanzamiento:<br><span>30% de descuento</span></h2>
+      <p>Esta oferta especial vence cuando el contador llega a cero. No pierdas la oportunidad de tener tu web profesional al mejor precio.</p>
+      <div class="countdown">
+        <div class="cd-box"><span class="cd-num" id="cd-d">03</span><span class="cd-label">Días</span></div>
+        <div class="cd-box"><span class="cd-num" id="cd-h">12</span><span class="cd-label">Horas</span></div>
+        <div class="cd-box"><span class="cd-num" id="cd-m">45</span><span class="cd-label">Minutos</span></div>
+        <div class="cd-box"><span class="cd-num" id="cd-s">00</span><span class="cd-label">Segundos</span></div>
+      </div>
+      <a href="#contacto" class="btn btn-primary btn-lg">Aprovechar el descuento</a>
+      <p class="cta-note">Sin compromiso · Te respondemos en menos de 24 hs</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECCIÓN 6 — TESTIMONIOS
+       Módulo 5: Widget Testimonial × 3
+  ══════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:52px">
+        <span class="tag">Prueba social</span>
+        <h2>Lo que dicen nuestros clientes</h2>
+        <div class="divider center"></div>
+        <p style="max-width:480px;margin:0 auto">Más de 80 marcas y emprendedores de Córdoba ya confiaron en nosotros.</p>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Forma Studio transformó por completo la presencia digital de mi consultora. El sitio quedó profesional, claro y mis clientes me lo mencionan constantemente. La entrega fue antes del plazo prometido."</p>
+          <div class="testi-author">
+            <div class="testi-avatar"><img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Laura"></div>
+            <div><strong>Laura Fernández</strong><span>Consultora de RRHH — Córdoba</span></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Trabajé con varios estudios antes y nunca había tenido tan buenos resultados. La landing page que hicieron para mi producto triplicó las consultas en el primer mes. Excelente calidad y atención."</p>
+          <div class="testi-author">
+            <div class="testi-avatar"><img src="https://randomuser.me/api/portraits/men/51.jpg" alt="Martín"></div>
+            <div><strong>Martín Ojeda</strong><span>Emprendedor Tech — Buenos Aires</span></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Muy profesionales, atentos y con buen gusto estético. Entendieron mi marca desde el primer encuentro y el resultado superó mis expectativas. Ahora sigo con el plan mensual de mantenimiento."</p>
+          <div class="testi-author">
+            <div class="testi-avatar"><img src="https://randomuser.me/api/portraits/women/29.jpg" alt="Camila"></div>
+            <div><strong>Camila Rojas</strong><span>Diseñadora de Indumentaria — Córdoba</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECCIÓN 7 — PRICING TABLE
+       Módulo 5: Widget Pricing Table
+  ══════════════════════════════════════ -->
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:52px">
+        <span class="tag">Planes y precios</span>
+        <h2>Elegí el plan que<br>mejor se adapta a vos</h2>
+        <div class="divider center"></div>
+        <p style="max-width:480px;margin:0 auto">Precios en USD. Pago en ARS al tipo de cambio del día. Sin cargos ocultos.</p>
+      </div>
+      <div class="pricing-grid">
+
+        <div class="pricing-card">
+          <p class="pricing-plan">Starter</p>
+          <div class="pricing-price"><sup>USD</sup> 350</div>
+          <p class="pricing-note">Pago único · entrega en 10 días</p>
+          <hr class="pricing-divider">
+          <ul class="pricing-features">
+            <li><i class="fas fa-check-circle"></i> Hasta 3 páginas</li>
+            <li><i class="fas fa-check-circle"></i> Design System básico</li>
+            <li><i class="fas fa-check-circle"></i> Header + Footer responsive</li>
+            <li><i class="fas fa-check-circle"></i> Formulario de contacto</li>
+            <li><i class="fas fa-check-circle"></i> Google Maps</li>
+            <li class="not-included"><i class="fas fa-times-circle"></i> Blog</li>
+            <li class="not-included"><i class="fas fa-times-circle"></i> Capacitación incluida</li>
+          </ul>
+          <a href="#contacto" class="btn btn-navy">Empezar con Starter</a>
+        </div>
+
+        <div class="pricing-card featured">
+          <div class="pricing-badge">⭐ Más elegido</div>
+          <p class="pricing-plan">Profesional</p>
+          <div class="pricing-price"><sup>USD</sup> 590</div>
+          <p class="pricing-note">Pago único · entrega en 15 días</p>
+          <hr class="pricing-divider">
+          <ul class="pricing-features">
+            <li><i class="fas fa-check-circle"></i> Hasta 5 páginas</li>
+            <li><i class="fas fa-check-circle"></i> Design System completo</li>
+            <li><i class="fas fa-check-circle"></i> Header + Footer responsive</li>
+            <li><i class="fas fa-check-circle"></i> Formulario + WP Mail SMTP</li>
+            <li><i class="fas fa-check-circle"></i> Blog con plantilla de post</li>
+            <li><i class="fas fa-check-circle"></i> SEO básico configurado</li>
+            <li><i class="fas fa-check-circle"></i> Capacitación 1 hs</li>
+          </ul>
+          <a href="#contacto" class="btn btn-primary">Empezar con Profesional</a>
+        </div>
+
+        <div class="pricing-card">
+          <p class="pricing-plan">E-commerce</p>
+          <div class="pricing-price"><sup>USD</sup> 950</div>
+          <p class="pricing-note">Pago único · entrega en 21 días</p>
+          <hr class="pricing-divider">
+          <ul class="pricing-features">
+            <li><i class="fas fa-check-circle"></i> Todo lo del plan Profesional</li>
+            <li><i class="fas fa-check-circle"></i> WooCommerce configurado</li>
+            <li><i class="fas fa-check-circle"></i> Hasta 20 productos cargados</li>
+            <li><i class="fas fa-check-circle"></i> Pasarela de pago (MercadoPago)</li>
+            <li><i class="fas fa-check-circle"></i> Gestión de stock</li>
+            <li><i class="fas fa-check-circle"></i> Capacitación 2 hs</li>
+            <li><i class="fas fa-check-circle"></i> 60 días de soporte</li>
+          </ul>
+          <a href="#contacto" class="btn btn-navy">Empezar con E-commerce</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECCIÓN 8 — FORMULARIO DE CONTACTO
+       Módulo 5: Widget Form
+  ══════════════════════════════════════ -->
+  <section class="section form-section" id="contacto">
+    <div class="container">
+      <div class="form-grid">
+        <div class="form-info">
+          <span class="tag">Contacto</span>
+          <h2>Contanos tu proyecto</h2>
+          <div class="divider"></div>
+          <p>Completá el formulario y te contactamos en menos de 24 horas hábiles con una propuesta personalizada para tu proyecto.</p>
+          <div class="form-info-items">
+            <div class="form-info-item">
+              <div class="fi-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div><strong>Ubicación</strong><p>Córdoba Capital, Argentina</p></div>
+            </div>
+            <div class="form-info-item">
+              <div class="fi-icon"><i class="fas fa-envelope"></i></div>
+              <div><strong>Email</strong><p>hola@formastudio.com.ar</p></div>
+            </div>
+            <div class="form-info-item">
+              <div class="fi-icon"><i class="fab fa-whatsapp"></i></div>
+              <div><strong>WhatsApp</strong><p>+54 9 351 000 0000</p></div>
+            </div>
+            <div class="form-info-item">
+              <div class="fi-icon"><i class="fas fa-clock"></i></div>
+              <div><strong>Horario</strong><p>Lunes a Viernes · 9:00 a 18:00</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <form action="thank-you.html" method="get">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" placeholder="Tu nombre" required>
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="tu@email.com" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>WhatsApp</label>
+                <input type="tel" placeholder="+54 9 351...">
+              </div>
+              <div class="form-group">
+                <label>Plan de interés</label>
+                <select>
+                  <option value="">Seleccioná un plan</option>
+                  <option>Starter — USD 350</option>
+                  <option>Profesional — USD 590</option>
+                  <option>E-commerce — USD 950</option>
+                  <option>Consulta personalizada</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Contanos tu proyecto</label>
+              <textarea placeholder="Describí brevemente tu negocio y lo que necesitás en tu sitio web..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%">Enviar consulta gratuita</button>
+            <p style="text-align:center;font-size:0.8rem;margin-top:12px;color:var(--gray-lt)">
+              <i class="fas fa-lock" style="margin-right:4px"></i> Tu información está segura. No hacemos spam.
+            </p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FOOTER GLOBAL
+  ══════════════════════════════════════ -->
+  <div class="footer-social-bar">
+    <span class="footer-line"></span>
+    <div class="footer-social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+    <span class="footer-line"></span>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="margin-bottom:14px">
+            <div class="logo-icon"><span>F</span></div>
+            <span style="color:var(--white);font-family:var(--font-h);font-weight:800">Forma Studio</span>
+          </div>
+          <p>Estudio de diseño web y comunicación visual. Ayudamos a emprendedores y marcas a construir su presencia digital desde Córdoba, Argentina.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Visitenos</h4>
+          <div class="footer-info-item"><span class="fi-icon"><i class="fas fa-map-marker-alt"></i></span><p>Bv. Chacabuco 123, Córdoba Capital</p></div>
+          <div class="footer-info-item"><span class="fi-icon"><i class="fas fa-envelope"></i></span><p>hola@formastudio.com.ar</p></div>
+        </div>
+        <div class="footer-col">
+          <h4>Horario de Atención</h4>
+          <div class="footer-info-item"><span class="fi-icon"><i class="fas fa-clock"></i></span><p>Lunes a Viernes<br>09:00 a 18:00</p></div>
+          <div class="footer-info-item"><span class="fi-icon"><i class="fas fa-mobile-alt"></i></span><p>+54 9 351 000 0000</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>FORMA STUDIO © Todos los derechos reservados. 2025 | Diseñado con ❤️ en <span>Córdoba</span> | <a href="index.html" style="color:var(--accent)">Volver al sitio</a></p>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════
+       POPUP — Módulo 5
+       Trigger: exit intent + 6 segundos
+  ══════════════════════════════════════ -->
+  <div class="popup-overlay" id="popup">
+    <div class="popup-box">
+      <button class="popup-close" id="popupClose">✕</button>
+      <div class="popup-img">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80" alt="Forma Studio equipo">
+      </div>
+      <div class="popup-body">
+        <h3>¡Esperá! Tenemos algo para vos</h3>
+        <p>Solicitá tu presupuesto hoy y recibí una <strong style="color:var(--primary)">auditoría web gratuita</strong> de tu presencia digital actual.</p>
+        <a href="#contacto" class="btn btn-primary" style="width:100%;display:block" onclick="document.getElementById('popup').classList.remove('open')">Quiero mi auditoría gratis</a>
+        <p style="margin-top:12px;font-size:0.78rem;color:var(--gray-lt);cursor:pointer" onclick="document.getElementById('popup').classList.remove('open')">No gracias, no me interesa mejorar mi web</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ── Countdown ──
+    const deadline = new Date();
+    deadline.setDate(deadline.getDate() + 3);
+    deadline.setHours(deadline.getHours() + 12);
+    deadline.setMinutes(deadline.getMinutes() + 45);
+
+    function updateCountdown() {
+      const now  = new Date();
+      const diff = Math.max(0, deadline - now);
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      document.getElementById('cd-d').textContent = String(d).padStart(2,'0');
+      document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
+      document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
+      document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // ── Popup con delay ──
+    setTimeout(() => document.getElementById('popup').classList.add('open'), 6000);
+    document.getElementById('popupClose').addEventListener('click', () =>
+      document.getElementById('popup').classList.remove('open'));
+    document.getElementById('popup').addEventListener('click', e => {
+      if (e.target === document.getElementById('popup'))
+        document.getElementById('popup').classList.remove('open');
+    });
+  </script>
+</body>
+</html>
