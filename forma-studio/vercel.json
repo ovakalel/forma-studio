@@ -10,5 +10,6 @@
     { "source": "/blog/post", "destination": "/blog-post.html" },
     { "source": "/design-system", "destination": "/design-system.html" },
     { "source": "/thank-you", "destination": "/thank-you.html" }
+    { "source": "/landing-diseno-web", "destination": "/landing-diseno-web.html" }
   ]
 }
